@@ -48,9 +48,9 @@ for news_file_name in os.listdir(news_candidates):
         news_candidate = read_file(news_file_path)
         ted_candidate = read_file(ted_file_path)
         
-        if news_file_name[23:-3] not in ['ref.ref-A','ref.ref-B']:
+        if news_file_name[23:-3] not in ['ref-A','ref-B']:
             news_data_dict[news_file_name[23:-3]] = news_candidate
-        if ted_file_name[19:-3] != 'ref.ref-A':
+        if ted_file_name[19:-3] != 'ref-A':
             ted_data_dict[ted_file_name[19:-3]] = ted_candidate
 
 
