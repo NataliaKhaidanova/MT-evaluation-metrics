@@ -39,17 +39,17 @@ ted_data_dict = {'TED_source':ted_source,
                  'TED_ref':ted_reference}
 
                    
-for new_file_name in os.listdir(news_candidates):
+for news_file_name in os.listdir(news_candidates):
     for ted_file_name in os.listdir(ted_candidates):
       
-        new_file_path = os.path.join(news_candidates, new_file_name)
+        news_file_path = os.path.join(news_candidates, news_file_name)
         ted_file_path = os.path.join(ted_candidates, ted_file_name)
         
-        news_candidate = read_file(new_file_path)
+        news_candidate = read_file(news_file_path)
         ted_candidate = read_file(ted_file_path)
         
-        if new_file_name[23:-3] not in ['ref.ref-A','ref.ref-B']:
-            news_data_dict[new_file_name[23:-3]] = news_candidate
+        if news_file_name[23:-3] not in ['ref.ref-A','ref.ref-B']:
+            news_data_dict[news_file_name[23:-3]] = news_candidate
         if ted_file_name[19:-3] != 'ref.ref-A':
             ted_data_dict[ted_file_name[19:-3]] = ted_candidate
 
