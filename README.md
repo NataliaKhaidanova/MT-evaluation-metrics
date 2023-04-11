@@ -1,4 +1,4 @@
-# Traditional Vs. Nural Metrics
+# Traditional Vs. Neural Metrics
 
 Update (11.04.23):
 
