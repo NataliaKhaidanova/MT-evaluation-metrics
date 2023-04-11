@@ -1,5 +1,9 @@
-# MT-evaluation-metrics
+# Traditional Vs. Nural Metrics
 
-- Почистить код. Постараться сделать его более readable. Может быть, разделить код для news и TED talks.
+Update (11.04.23):
 
-- Проверить работает ли код. Пофиксить BLEU TED talks. 
+- NLTK BLEU (ranges from 0 to 1) gives only zeros for the TEDtalks data probably because there is only one reference. SacreBLEU gives something because it ranges from 0 to 100 -> Use metrics within this range? 
+
+- Torch CHRF is TOO SLOW + I don't know which version of CHRF is being calculated! Parameters are not supported for some reason resulting in no errors but zero output. 
+
+
