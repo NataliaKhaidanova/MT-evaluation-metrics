@@ -37,7 +37,8 @@ for file_name in os.listdir(news_candidates):
                 bleu_candidate = candidate.split()  
                 bleu_scores.append(f'{sentence_bleu(references, bleu_candidate):.2f}')
                 
-                # torch CHRF2 (TOO SLOW, doesn't support parameters https://torchmetrics.readthedocs.io/en/stable/text/chrf_score.html)
+                # torch CHRF2 (TOO SLOW, gives scores in range from 0 to 1,
+                ### doesn't support parameters https://torchmetrics.readthedocs.io/en/stable/text/chrf_score.html)
                 #chrf2_references = [' '.join(x) for x in references]
                 #chrf2 = chrf([candidate], chrf2_references)
                 #chrf2 = chrf2.item()
@@ -79,7 +80,7 @@ for file_name in os.listdir(ted_candidates):
         candidates = list(ted_data[file_name[19:-3]])
 
         for reference, candidate in zip(ted_references, candidates):
-            # nltk BLEU
+            # nltk BLEU (GIVES ZEROS FOR EVERYTHING probably because there is only one reference)
             bleu_candidate = candidate.split()  
             bleu_scores.append(f'{sentence_bleu(references, bleu_candidate):.2f}')
 
