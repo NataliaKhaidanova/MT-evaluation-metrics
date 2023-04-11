@@ -44,7 +44,7 @@ for file_name in os.listdir(news_candidates):
                 #chrf2 = chrf2.item()
                 #chrf2_scores.append(f'{chrf2:.2f}')
                 
-                # THE SCORES ARE EQUAL FOR Facebook-AI???
+                # THE SCORES ARE EQUAL FOR Facebook-AI??? (NOT ANY MORE???)
                 bleu_and_chrf2_references = [' '.join(x) for x in references]  
                 # sacreBLEU
                 sacre_bleu = sacrebleu.sentence_bleu(candidate, bleu_and_chrf2_references)
