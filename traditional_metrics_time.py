@@ -30,14 +30,13 @@ def get_traditional_metrics_time(data, candidates, references, metric):
     :return: None
     """
     start_time = time.time()
-    all_scores = []
-    count = 0
+    all_scores, count = [], []
     
     for file_name in os.listdir(candidates):
         # get the scores for the newstest2021 data
         if 'newstest2021' in candidates and file_name[23:-3] not in ['ref-A','ref-B','']:
             
-            count += 1
+            count.append('file processed')
             data_dict, scores = {}, []
             file_candidates = list(data[file_name[23:-3]])
             
@@ -70,11 +69,11 @@ def get_traditional_metrics_time(data, candidates, references, metric):
                     except TypeError:
                         scores.append('0.00')
                         
-                    if count == 3:
+                    if len(count) == 3:
                         print('Three files are processed.')    
-                    if count == 7:
+                    if len(count) == 7:
                         print('Half of the files is processed.')
-                    if count == 11:
+                    if len(count) == 11:
                         print('Almost done.')
                         
             data_dict[metric] = scores 
@@ -83,7 +82,7 @@ def get_traditional_metrics_time(data, candidates, references, metric):
         # get the scores for the tedtalks data    
         if 'tedtalks' in candidates and file_name[19:-3] not in ['ref-A','']:
             
-            count += 1
+            count.append('file processed')
             data_dict, scores = {}, []
             file_candidates = list(data[file_name[19:-3]])
             
@@ -103,11 +102,11 @@ def get_traditional_metrics_time(data, candidates, references, metric):
                     ter = sacrebleu.sentence_ter(candidate, reference)
                     scores.append(f'{ter.score:.2f}')
                     
-                    if count == 3:
+                    if len(count) == 3:
                         print('Three files are processed.')    
-                    if count == 7:
+                    if len(count) == 7:
                         print('Half of the files is processed.')
-                    if count == 11:
+                    if len(count) == 11:
                         print('Almost done.')
                         
             data_dict[metric] = scores 
