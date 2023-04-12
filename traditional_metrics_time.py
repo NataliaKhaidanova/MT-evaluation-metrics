@@ -30,13 +30,14 @@ def get_traditional_metrics_time(data, candidates, references, metric):
     :return: None
     """
     start_time = time.time()
-    all_scores, count = [], []
+    all_scores = []
+    count = 0
     
     for file_name in os.listdir(candidates):
         # get the scores for the newstest2021 data
         if 'newstest2021' in candidates and file_name[23:-3] not in ['ref-A','ref-B','']:
             
-            count.append('file processed')
+            count += 1
             data_dict, scores = {}, []
             file_candidates = list(data[file_name[23:-3]])
             
@@ -67,17 +68,17 @@ def get_traditional_metrics_time(data, candidates, references, metric):
                         scores.append(f'{ter.score:.2f}')
                     
                     except TypeError:
-                        scores.append('0.00')
-                        
-                    if len(count) == 3:
-                        print('Three files are processed.')    
-                    if len(count) == 7:
-                        print('Half of the files is processed.')
-                    if len(count) == 11:
-                        print('Almost done.')
+                        scores.append('0.00')               
                         
             data_dict[metric] = scores 
             all_scores.append(data_dict)
+            
+            if count == 3:
+                print('Three files are processed.')    
+            if count == 7:
+                print('Half of the files is processed.')
+            if count) == 11:
+                print('Almost done.')
             
         # get the scores for the tedtalks data    
         if 'tedtalks' in candidates and file_name[19:-3] not in ['ref-A','']:
@@ -101,16 +102,16 @@ def get_traditional_metrics_time(data, candidates, references, metric):
                 if metric == 'TER':
                     ter = sacrebleu.sentence_ter(candidate, reference)
                     scores.append(f'{ter.score:.2f}')
-                    
-                    if len(count) == 3:
-                        print('Three files are processed.')    
-                    if len(count) == 7:
-                        print('Half of the files is processed.')
-                    if len(count) == 11:
-                        print('Almost done.')
                         
             data_dict[metric] = scores 
             all_scores.append(data_dict)
+            
+            if len(count) == 3:
+                print('Three files are processed.')    
+            if len(count) == 7:
+                print('Half of the files is processed.')
+            if len(count) == 11:
+                print('Almost done.')
             
     end_time = time.time()
     total_time = end_time - start_time
