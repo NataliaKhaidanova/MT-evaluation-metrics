@@ -83,7 +83,7 @@ def get_traditional_metrics_time(data, candidates, references, metric):
         # get the scores for the tedtalks data    
         if 'tedtalks' in candidates and file_name[19:-3] not in ['ref-A','']:
             
-            count.append('file processed')
+            count += 1
             data_dict, scores = {}, []
             file_candidates = list(data[file_name[19:-3]])
             
