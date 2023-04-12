@@ -74,11 +74,11 @@ def get_traditional_metrics_time(data, candidates, references, metric):
             all_scores.append(data_dict)
             
             if count == 3:
-                print('Three files are processed.')    
+                print('three files are processed')    
             if count == 7:
-                print('Half of the files is processed.')
+                print('half of the files is processed')
             if count) == 11:
-                print('Almost done.')
+                print('almost done')
             
         # get the scores for the tedtalks data    
         if 'tedtalks' in candidates and file_name[19:-3] not in ['ref-A','']:
@@ -107,11 +107,11 @@ def get_traditional_metrics_time(data, candidates, references, metric):
             all_scores.append(data_dict)
             
             if len(count) == 3:
-                print('Three files are processed.')    
+                print('three files are processed')    
             if len(count) == 7:
-                print('Half of the files is processed.')
+                print('half of the files is processed')
             if len(count) == 11:
-                print('Almost done.')
+                print('almost done')
             
     end_time = time.time()
     total_time = end_time - start_time
@@ -120,10 +120,18 @@ def get_traditional_metrics_time(data, candidates, references, metric):
     
 if __name__ == '__main__':
     print('newstest2021 data:')
+    print('==================')
     get_traditional_metrics_time(news_data, news_candidates, all_news_references, 'BLEU')
+    print('------------------')
     get_traditional_metrics_time(news_data, news_candidates, all_news_references, 'CHRF2')
+    print('------------------')
     get_traditional_metrics_time(news_data, news_candidates, all_news_references, 'TER')
+    print('------------------')
     print('tedtalks data:')
+    print('==================')
     get_traditional_metrics_time(ted_data, ted_candidates, ted_references, 'BLEU')
+    print('------------------')
     get_traditional_metrics_time(ted_data, ted_candidates, ted_references, 'CHRF2')
+    print('------------------')
     get_traditional_metrics_time(ted_data, ted_candidates, ted_references, 'TER')
+    print('------------------')
