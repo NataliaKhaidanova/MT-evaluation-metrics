@@ -30,9 +30,7 @@ def get_traditional_metrics_time(data, candidates, references, metric):
     :return: None
     """
     start_time = time.time()
-    
     all_scores = []
-    
     count = 0
     
     for file_name in os.listdir(candidates):
@@ -40,9 +38,7 @@ def get_traditional_metrics_time(data, candidates, references, metric):
         if 'newstest2021' in candidates and file_name[23:-3] not in ['ref-A','ref-B','']:
             
             count = count + 1
-            
             data_dict, scores = {}, []
-            
             file_candidates = list(data[file_name[23:-3]])
             
             for reference, candidate in zip(references, file_candidates):
@@ -88,9 +84,7 @@ def get_traditional_metrics_time(data, candidates, references, metric):
         if 'tedtalks' in candidates and file_name[19:-3] not in ['ref-A','']:
             
             count = count + 1
-            
             data_dict, scores = {}, []
-            
             file_candidates = list(data[file_name[19:-3]])
             
             for reference, candidate in zip(references, file_candidates):
