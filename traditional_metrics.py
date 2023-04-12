@@ -26,7 +26,8 @@ news_scores, ted_scores = [], []
 for file_name in os.listdir(news_candidates):
     
     data_dict = {}
-    bleu_scores, sacre_bleu_scores, chrf2_scores, sacre_chrf2_scores = [], [], [], []
+    #chrf2_scores = []
+    bleu_scores, sacre_bleu_scores, sacre_chrf2_scores, sacre_ter_scores = [], [], [], []
     
     if file_name[23:-3] not in ['ref-A','ref-B','']:
         candidates = list(news_data[file_name[23:-3]])
@@ -45,36 +46,43 @@ for file_name in os.listdir(news_candidates):
                 #chrf2_scores.append(f'{chrf2:.2f}')
                 
                 # THE SCORES ARE EQUAL FOR Facebook-AI??? (NOT ANY MORE???)
-                bleu_and_chrf2_references = [' '.join(x) for x in references]  
+                sacre_references = [' '.join(x) for x in references]  
                 # sacreBLEU
-                sacre_bleu = sacrebleu.sentence_bleu(candidate, bleu_and_chrf2_references)
+                sacre_bleu = sacrebleu.sentence_bleu(candidate, sacre_references)
                 sacre_bleu_scores.append(f'{sacre_bleu.score:.2f}')
                 # sacreCHRF2
-                sacre_chrf2 = sacrebleu.sentence_chrf(candidate, bleu_and_chrf2_references)
+                sacre_chrf2 = sacrebleu.sentence_chrf(candidate, sacre_references)
                 sacre_chrf2_scores.append(f'{sacre_chrf2.score:.2f}')
+                # sacreTER
+                sacre_ter = sacrebleu.sentence_chrf(candidate, sacre_references)
+                sacre_ter_scores.append(f'{sacre_ter.score:.2f}')
                 
             except AttributeError:
                 bleu_scores.append('0.00')
                 sacre_bleu_scores.append('0.00')
                 #chrf2_scores.append('0.00')
                 sacre_chrf2_scores.append('0.00')
+                sacre_ter_scores.append('0.00')
             except TypeError:
                 bleu_scores.append('0.00')
                 sacre_bleu_scores.append('0.00')
                 #chrf2_scores.append('0.00')
                 sacre_chrf2_scores.append('0.00')
+                sacre_ter_scores.append('0.00')
                 
         data_dict['BLEU'] = bleu_scores   
         data_dict['sacre_BLEU'] = sacre_bleu_scores   
         #data_dict['CHRF2'] = chrf2_scores   
-        data_dict['sacre_CHRF2'] = sacre_chrf2_scores  
+        data_dict['sacre_CHRF2'] = sacre_chrf2_scores 
+        data_dict['sacre_TER'] = sacre_ter_scores  
         news_scores.append(data_dict)
         
     
 for file_name in os.listdir(ted_candidates):
     
     data_dict = {}
-    bleu_scores, sacre_bleu_scores, chrf2_scores, sacre_chrf2_scores = [], [], [], []
+    #chrf2_scores = []
+    bleu_scores, sacre_bleu_scores, sacre_chrf2_scores, sacre_ter_scores = [], [], [], []
     
     if file_name[19:-3] != 'ref-A':
         candidates = list(ted_data[file_name[19:-3]])
@@ -91,10 +99,14 @@ for file_name in os.listdir(ted_candidates):
             # sacreCHRF2
             sacre_chrf2 = sacrebleu.sentence_chrf(candidate, bleu_and_chrf2_references)
             sacre_chrf2_scores.append(f'{sacre_chrf2.score:.2f}')
+            # sacreTER
+            sacre_ter = sacrebleu.sentence_chrf(candidate, sacre_references)
+            sacre_ter_scores.append(f'{sacre_ter.score:.2f}')
                 
         data_dict['BLEU'] = bleu_scores   
         data_dict['sacre_BLEU'] = sacre_bleu_scores    
         data_dict['sacre_CHRF2'] = sacre_chrf2_scores  
+        data_dict['sacre_TER'] = sacre_ter_scores  
         ted_scores.append(data_dict)
 
         
@@ -107,4 +119,4 @@ for file_name, data_dict in zip(os.listdir(news_candidates), news_scores):
 for file_name, data_dict in zip(os.listdir(ted_candidates), ted_scores):
     
     ted_data = pd.DataFrame(data_dict)
-    ted_data.to_csv(f'Data/tedtalks/{file_name[19:-3]}.tsv', sep='\t', index=False)    
+    ted_data.to_csv(f'Data/tedtalks/{file_name[19:-3]}.tsv', sep='\t', index=False)   
