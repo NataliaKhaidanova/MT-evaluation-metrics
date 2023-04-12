@@ -54,7 +54,7 @@ for file_name in os.listdir(news_candidates):
                 sacre_chrf2 = sacrebleu.sentence_chrf(candidate, sacre_references)
                 sacre_chrf2_scores.append(f'{sacre_chrf2.score:.2f}')
                 # sacreTER
-                sacre_ter = sacrebleu.sentence_chrf(candidate, sacre_references)
+                sacre_ter = sacrebleu.sentence_ter(candidate, sacre_references)
                 sacre_ter_scores.append(f'{sacre_ter.score:.2f}')
                 
             except AttributeError:
@@ -100,7 +100,7 @@ for file_name in os.listdir(ted_candidates):
             sacre_chrf2 = sacrebleu.sentence_chrf(candidate, bleu_and_chrf2_references)
             sacre_chrf2_scores.append(f'{sacre_chrf2.score:.2f}')
             # sacreTER
-            sacre_ter = sacrebleu.sentence_chrf(candidate, sacre_references)
+            sacre_ter = sacrebleu.sentence_ter(candidate, sacre_references)
             sacre_ter_scores.append(f'{sacre_ter.score:.2f}')
                 
         data_dict['BLEU'] = bleu_scores   
