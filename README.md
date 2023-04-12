@@ -10,8 +10,5 @@ Observations:
 
 - TER is VERY SLOW
 
-To do:
-
-- Fix no output for one of the files in newstest2021
 
 
