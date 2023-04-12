@@ -77,7 +77,7 @@ def get_traditional_metrics_time(data, candidates, references, metric):
                 print('three files are processed')    
             if count == 7:
                 print('half of the files is processed')
-            if count) == 11:
+            if count == 11:
                 print('almost done')
             
         # get the scores for the tedtalks data    
@@ -106,11 +106,11 @@ def get_traditional_metrics_time(data, candidates, references, metric):
             data_dict[metric] = scores 
             all_scores.append(data_dict)
             
-            if len(count) == 3:
+            if count == 3:
                 print('three files are processed')    
-            if len(count) == 7:
+            if count == 7:
                 print('half of the files is processed')
-            if len(count) == 11:
+            if count == 11:
                 print('almost done')
             
     end_time = time.time()
