@@ -37,7 +37,7 @@ def get_traditional_metrics_time(data, candidates, references, metric):
         # get the scores for the newstest2021 data
         if 'newstest2021' in candidates and file_name[23:-3] not in ['ref-A','ref-B','']:
             
-            count = count + 1
+            count += 1
             data_dict, scores = {}, []
             file_candidates = list(data[file_name[23:-3]])
             
@@ -83,7 +83,7 @@ def get_traditional_metrics_time(data, candidates, references, metric):
         # get the scores for the tedtalks data    
         if 'tedtalks' in candidates and file_name[19:-3] not in ['ref-A','']:
             
-            count = count + 1
+            count += 1
             data_dict, scores = {}, []
             file_candidates = list(data[file_name[19:-3]])
             
