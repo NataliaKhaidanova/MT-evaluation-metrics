@@ -19,7 +19,12 @@ ted_candidates = r'WMT21-data/system-outputs/tedtalks/en-ru'
 ted_references = list(ted_data['TED_ref'])
 
 
-start_time = time.time()
+bleurt_20_config = BleurtConfig.from_pretrained('lucadiliello/BLEURT-20')
+bleurt_20_model = BleurtForSequenceClassification.from_pretrained('lucadiliello/BLEURT-20')
+bleurt_20_tokenizer = BleurtTokenizer.from_pretrained('lucadiliello/BLEURT-20')
+bleurt_20_model.eval()
+
+
 news_scores, ted_scores = [], []
 
 for file_name in os.listdir(news_candidates):
@@ -27,7 +32,8 @@ for file_name in os.listdir(news_candidates):
     data_dict, bleurt_20_scores_ref_A, bleurt_20_scores_ref_B = {}, [], []
 
     if file_name[23:-3] not in ['ref-A','ref-B','']:
-      
+        
+        start_time = time.time()
         count = 0
         print(f'computing scores for {file_name[23:-3]}:')
         candidates = list(news_data[file_name[23:-3]])
@@ -43,7 +49,7 @@ for file_name in os.listdir(news_candidates):
                     bleurt_20_scores_ref_A.append(f'{bleurt_20_score_ref_A[0]:.2f}')
                     # compute BLEURT-20 scores for reference B
                     inputs = bleurt_20_tokenizer(references[1], candidate, padding='longest', return_tensors='pt')
-                    bleurt_20_scores_ref_B = bleurt_20_model(**inputs).logits.flatten().tolist()
+                    bleurt_20_score_ref_B = bleurt_20_model(**inputs).logits.flatten().tolist()
                     bleurt_20_scores_ref_B.append(f'{bleurt_20_score_ref_B[0]:.2f}')
                 except RuntimeError:
                     bleurt_20_score_ref_A.append('0.00')
@@ -63,19 +69,18 @@ for file_name in os.listdir(news_candidates):
         data_dict['BLEURT-20_ref_B'] = bleurt_20_scores_ref_B  
         news_scores.append(data_dict)
 
-end_time = time.time()
-total_time = end_time - start_time
-print(f'Time taken to compute BLEURT-20 on news2021test data: {total_time:.2f} seconds')
+        end_time = time.time()
+        total_time = end_time - start_time
+        print(f'Time taken to compute BLEURT-20 on news2021test data for{file_name[23:-3]}: {total_time:.2f} seconds')
 
-
-start_time = time.time()
 
 for file_name in os.listdir(ted_candidates):
     
     data_dict, bleurt_20_scores = {}, []
 
     if file_name[19:-3] != 'ref-A':
-      
+        
+        start_time = time.time()
         count = 0
         print(f'computing scores for {file_name[19:-3]}:')
         candidates = list(ted_data[file_name[19:-3]])
@@ -100,9 +105,9 @@ for file_name in os.listdir(ted_candidates):
         data_dict['BLEURT-20'] = bleurt_20_scores 
         ted_scores.append(data_dict)
 
-end_time = time.time() 
-total_time = end_time - start_time
-print(f'Time taken to compute BLEURT-20 on tedtalks data: {total_time:.2f} seconds')
+        end_time = time.time()
+        total_time = end_time - start_time
+        print(f'Time taken to compute BLEURT-20 on tedtalks data for{file_name[19:-3]}: {total_time:.2f} seconds')
 
 
 for file_name, data_dict in zip(os.listdir(news_candidates), news_scores):
