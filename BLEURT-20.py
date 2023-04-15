@@ -29,7 +29,7 @@ for file_name in os.listdir(news_candidates):
     if file_name[23:-3] not in ['ref-A','ref-B','']:
       
         count = 0
-        print(f'computing scores for {file_name[23:-3]}')
+        print(f'computing scores for {file_name[23:-3]}:')
         candidates = list(news_data[file_name[23:-3]])
 
         for references, candidate in zip(all_news_references, candidates):
@@ -77,7 +77,7 @@ for file_name in os.listdir(ted_candidates):
     if file_name[19:-3] != 'ref-A':
       
         count = 0
-        print(f'computing scores for {file_name[19:-3]}')
+        print(f'computing scores for {file_name[19:-3]}:')
         candidates = list(ted_data[file_name[19:-3]])
 
         for reference, candidate in zip(ted_references, candidates):
