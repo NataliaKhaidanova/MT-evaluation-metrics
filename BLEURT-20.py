@@ -62,7 +62,6 @@ for file_name in os.listdir(news_candidates):
                 print('scores for 800 candidates are computed')  
             if count == 950:
                 print('almost done')
-                print('==================')
                     
         data_dict['BLEURT-20_ref_A'] = bleurt_20_scores_ref_A 
         data_dict['BLEURT-20_ref_B'] = bleurt_20_scores_ref_B  
@@ -70,7 +69,8 @@ for file_name in os.listdir(news_candidates):
         end_time = time.time()
         total_time = end_time - start_time
         print(f'Time taken to compute BLEURT-20 on newstest2021 data for{file_name[23:-3]}: {total_time:.2f} seconds')
-
+        print('==================')
+        
         news_data = pd.DataFrame(data_dict)
         news_data.to_csv(f'Data/newstest2021/{file_name[23:-3]}_BLEURT-20.tsv', sep='\t', index=False) 
         
@@ -99,14 +99,14 @@ for file_name in os.listdir(ted_candidates):
                 print('scores for 350 candidates are computed')  
             if count == 480:
                 print('almost done')
-                print('==================')
                     
         data_dict['BLEURT-20'] = bleurt_20_scores 
 
         end_time = time.time()
         total_time = end_time - start_time
         print(f'Time taken to compute BLEURT-20 on tedtalks data for {file_name[19:-3]}: {total_time:.2f} seconds')
-
+        print('==================')
+        
         ted_data = pd.DataFrame(data_dict)
         ted_data.to_csv(f'Data/tedtalks/{file_name[19:-3]}_BLEURT-20.tsv', sep='\t', index=False) 
     
