@@ -113,7 +113,6 @@ for file_name, data_dict in zip(os.listdir(news_candidates), news_scores):
     
     news_data = pd.DataFrame(data_dict)
     news_data.to_csv(f'Data/newstest2021/{file_name[23:-3]}.tsv', sep='\t', index=False) 
- 
 
 for file_name, data_dict in zip(os.listdir(ted_candidates), ted_scores):
     
