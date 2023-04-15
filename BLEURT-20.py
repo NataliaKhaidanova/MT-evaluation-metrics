@@ -50,6 +50,9 @@ for file_name in os.listdir(news_candidates):
                 except RuntimeError:
                     bleurt_20_score_ref_A.append('0.00')
                     bleurt_20_scores_ref_B.append('0.00')
+                except ValueError:
+                    bleurt_20_scores_ref_A.append('0.00')
+                    bleurt_20_scores_ref_B.append('0.00')
                     
             if count == 250:
                 print('scores for 250 candidates are computed')    
