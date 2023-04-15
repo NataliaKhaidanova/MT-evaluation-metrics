@@ -23,13 +23,12 @@ news_scores, ted_scores = [], []
 
 #chrf = CHRFScore()
 
-for file_name in os.listdir(news_candidates):
-    
-    data_dict = {}
-    #chrf2_scores = []
-    bleu_scores, sacre_bleu_scores, sacre_chrf2_scores, sacre_ter_scores = [], [], [], []
-    
+for file_name in os.listdir(news_candidates): 
     if file_name[23:-3] not in ['ref-A','ref-B','']:
+        
+        data_dict = {}
+        #chrf2_scores = []
+        bleu_scores, sacre_bleu_scores, sacre_chrf2_scores, sacre_ter_scores = [], [], [], []
         candidates = list(news_data[file_name[23:-3]])
 
         for references, candidate in zip(all_news_references, candidates):
@@ -79,12 +78,11 @@ for file_name in os.listdir(news_candidates):
         
     
 for file_name in os.listdir(ted_candidates):
-    
-    data_dict = {}
-    #chrf2_scores = []
-    bleu_scores, sacre_bleu_scores, sacre_chrf2_scores, sacre_ter_scores = [], [], [], []
-    
     if file_name[19:-3] != 'ref-A':
+        
+        data_dict = {}
+        #chrf2_scores = []
+        bleu_scores, sacre_bleu_scores, sacre_chrf2_scores, sacre_ter_scores = [], [], [], []
         candidates = list(ted_data[file_name[19:-3]])
 
         for reference, candidate in zip(ted_references, candidates):
