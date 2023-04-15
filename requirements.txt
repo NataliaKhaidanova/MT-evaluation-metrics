@@ -1,0 +1,2 @@
+To compute BLEURT-20:
+- pip install git+https://github.com/lucadiliello/bleurt-pytorch.git
