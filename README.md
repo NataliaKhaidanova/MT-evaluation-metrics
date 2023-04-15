@@ -10,5 +10,8 @@ Observations:
 
 - TER is VERY SLOW
 
+Runtime:
+news2021test
+
 
 
