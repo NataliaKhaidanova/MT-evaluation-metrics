@@ -10,6 +10,8 @@ Observations:
 
 - TER is VERY SLOW
 
+- BLEURT-20 does not support more than one reference. Therefore, the scores for the newstest2021 data are cumputed separatelly for each reference. 
+
 
 
 
