@@ -65,7 +65,7 @@ for file_name in os.listdir(news_candidates):
 
 end_time = time.time()
 total_time = end_time - start_time
-print(f'Time taken for {metric} on news2021test data: {total_time:.2f} seconds')
+print(f'Time taken to compute BLEURT-20 on news2021test data: {total_time:.2f} seconds')
 
 
 start_time = time.time()
@@ -102,7 +102,7 @@ for file_name in os.listdir(ted_candidates):
 
 end_time = time.time() 
 total_time = end_time - start_time
-print(f'Time taken for {metric} on tedtalks data: {total_time:.2f} seconds')
+print(f'Time taken to compute BLEURT-20 on tedtalks data: {total_time:.2f} seconds')
 
 
 for file_name, data_dict in zip(os.listdir(news_candidates), news_scores):
