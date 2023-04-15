@@ -1,4 +1,4 @@
-BLEURT-20 scores for newstest2021 en-ru data (WMT-21 Metrics task)
+BLEURT-20 scores for the newstest2021 data (langauge pair: en-ru)(WMT-21 Metrics task):
 
 Runtime on CPU:
 
