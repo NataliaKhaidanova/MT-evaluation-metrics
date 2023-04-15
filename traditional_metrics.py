@@ -92,15 +92,14 @@ for file_name in os.listdir(ted_candidates):
             bleu_candidate = candidate.split()  
             bleu_scores.append(f'{sentence_bleu(references, bleu_candidate):.2f}')
 
-            bleu_and_chrf2_references = [' '.join(x) for x in references]  
             # sacreBLEU
-            sacre_bleu = sacrebleu.sentence_bleu(candidate, bleu_and_chrf2_references)
+            sacre_bleu = sacrebleu.sentence_bleu(candidate, reference)
             sacre_bleu_scores.append(f'{sacre_bleu.score:.2f}')
             # sacreCHRF2
-            sacre_chrf2 = sacrebleu.sentence_chrf(candidate, bleu_and_chrf2_references)
+            sacre_chrf2 = sacrebleu.sentence_chrf(candidate, reference)
             sacre_chrf2_scores.append(f'{sacre_chrf2.score:.2f}')
             # sacreTER
-            sacre_ter = sacrebleu.sentence_ter(candidate, sacre_references)
+            sacre_ter = sacrebleu.sentence_ter(candidate, reference)
             sacre_ter_scores.append(f'{sacre_ter.score:.2f}')
                 
         data_dict['BLEU'] = bleu_scores   
