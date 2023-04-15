@@ -25,14 +25,10 @@ bleurt_20_tokenizer = BleurtTokenizer.from_pretrained('lucadiliello/BLEURT-20')
 bleurt_20_model.eval()
 
 
-news_scores, ted_scores = [], []
-
 for file_name in os.listdir(news_candidates):
-    
-    data_dict, bleurt_20_scores_ref_A, bleurt_20_scores_ref_B = {}, [], []
-
     if file_name[23:-3] not in ['ref-A','ref-B','']:
         
+        data_dict, bleurt_20_scores_ref_A, bleurt_20_scores_ref_B = {}, [], []
         start_time = time.time()
         count = 0
         print(f'computing scores for {file_name[23:-3]}:')
@@ -67,19 +63,19 @@ for file_name in os.listdir(news_candidates):
                     
         data_dict['BLEURT-20_ref_A'] = bleurt_20_scores_ref_A 
         data_dict['BLEURT-20_ref_B'] = bleurt_20_scores_ref_B  
-        news_scores.append(data_dict)
 
         end_time = time.time()
         total_time = end_time - start_time
-        print(f'Time taken to compute BLEURT-20 on news2021test data for{file_name[23:-3]}: {total_time:.2f} seconds')
+        print(f'Time taken to compute BLEURT-20 on newstest2021 data for{file_name[23:-3]}: {total_time:.2f} seconds')
 
-
+        news_data = pd.DataFrame(data_dict)
+        news_data.to_csv(f'Data/newstest2021/{file_name[23:-3]}_BLEURT-20.tsv', sep='\t', index=False) 
+        
+        
 for file_name in os.listdir(ted_candidates):
-    
-    data_dict, bleurt_20_scores = {}, []
-
     if file_name[19:-3] != 'ref-A':
         
+        data_dict, bleurt_20_scores = {}, []
         start_time = time.time()
         count = 0
         print(f'computing scores for {file_name[19:-3]}:')
@@ -109,13 +105,6 @@ for file_name in os.listdir(ted_candidates):
         total_time = end_time - start_time
         print(f'Time taken to compute BLEURT-20 on tedtalks data for{file_name[19:-3]}: {total_time:.2f} seconds')
 
-
-for file_name, data_dict in zip(os.listdir(news_candidates), news_scores):
+        ted_data = pd.DataFrame(data_dict)
+        ted_data.to_csv(f'Data/tedtalks/{file_name[19:-3]}_BLEURT-20.tsv', sep='\t', index=False) 
     
-    news_data = pd.DataFrame(data_dict)
-    news_data.to_csv(f'Data/newstest2021/{file_name[23:-3]}_BLEURT-20.tsv', sep='\t', index=False) 
-
-for file_name, data_dict in zip(os.listdir(ted_candidates), ted_scores):
-    
-    ted_data = pd.DataFrame(data_dict)
-    ted_data.to_csv(f'Data/tedtalks/{file_name[19:-3]}_BLEURT-20.tsv', sep='\t', index=False) 
