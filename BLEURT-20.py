@@ -43,7 +43,7 @@ for file_name in os.listdir(news_candidates):
                     bleurt_20_scores_ref_A.append(f'{bleurt_20_score_ref_A[0]:.2f}')
                     # compute BLEURT-20 scores for reference B
                     inputs = bleurt_20_tokenizer(references[1], candidate, padding='longest', return_tensors='pt')
-                    bleurt_20_score_ref_B = bleurt_20_model(**inputs).logits.flatten().tolist()
+                    bleurt_20_scores_ref_B = bleurt_20_model(**inputs).logits.flatten().tolist()
                     bleurt_20_scores_ref_B.append(f'{bleurt_20_score_ref_B[0]:.2f}')
                 except RuntimeError:
                     bleurt_20_score_ref_A.append('0.00')
