@@ -102,7 +102,6 @@ for file_name in os.listdir(ted_candidates):
                 print('==================')
                     
         data_dict['BLEURT-20'] = bleurt_20_scores 
-        ted_scores.append(data_dict)
 
         end_time = time.time()
         total_time = end_time - start_time
