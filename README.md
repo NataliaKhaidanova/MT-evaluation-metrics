@@ -11,7 +11,9 @@ Observations:
 - TER is VERY SLOW
 
 Runtime:
-news2021test
+newstest2021:
+BLEURT-20:
+Facebook-AI - 6089.12 seconds (101.48 minutes)
 
 
 
