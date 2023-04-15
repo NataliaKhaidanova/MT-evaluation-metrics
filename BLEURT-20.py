@@ -105,7 +105,7 @@ for file_name in os.listdir(ted_candidates):
 
         end_time = time.time()
         total_time = end_time - start_time
-        print(f'Time taken to compute BLEURT-20 on tedtalks data for{file_name[19:-3]}: {total_time:.2f} seconds')
+        print(f'Time taken to compute BLEURT-20 on tedtalks data for {file_name[19:-3]}: {total_time:.2f} seconds')
 
         ted_data = pd.DataFrame(data_dict)
         ted_data.to_csv(f'Data/tedtalks/{file_name[19:-3]}_BLEURT-20.tsv', sep='\t', index=False) 
