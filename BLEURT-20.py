@@ -91,13 +91,13 @@ for file_name in os.listdir(ted_candidates):
                 bleurt_20_score = bleurt_20_model(**inputs).logits.flatten().tolist()
                 bleurt_20_scores.append(f'{bleurt_20_score[0]:.2f}')
                     
-            if count == 250:
-                print('scores for 250 candidates are computed')    
-            if count == 501:
+            if count == 120:
+                print('scores for 120 candidates are computed')    
+            if count == 256:
                 print('half of the scores is computed') 
-            if count == 800:
-                print('scores for 800 candidates are computed')  
-            if count == 950:
+            if count == 350:
+                print('scores for 350 candidates are computed')  
+            if count == 480:
                 print('almost done')
                 print('==================')
                     
