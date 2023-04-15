@@ -48,7 +48,7 @@ for file_name in os.listdir(news_candidates):
                     bleurt_20_score_ref_B = bleurt_20_model(**inputs).logits.flatten().tolist()
                     bleurt_20_scores_ref_B.append(f'{bleurt_20_score_ref_B[0]:.2f}')
                 except RuntimeError:
-                    bleurt_20_score_ref_A.append('0.00')
+                    bleurt_20_scores_ref_A.append('0.00')
                     bleurt_20_scores_ref_B.append('0.00')
                 except ValueError:
                     bleurt_20_scores_ref_A.append('0.00')
@@ -68,7 +68,7 @@ for file_name in os.listdir(news_candidates):
 
         end_time = time.time()
         total_time = end_time - start_time
-        print(f'Time taken to compute BLEURT-20 on newstest2021 data for{file_name[23:-3]}: {total_time:.2f} seconds')
+        print(f'BLEURT-20 runtime on the newstest2021 data for{file_name[23:-3]}: {total_time:.2f} seconds')
         print('==================')
         
         news_data = pd.DataFrame(data_dict)
@@ -104,7 +104,7 @@ for file_name in os.listdir(ted_candidates):
 
         end_time = time.time()
         total_time = end_time - start_time
-        print(f'Time taken to compute BLEURT-20 on tedtalks data for {file_name[19:-3]}: {total_time:.2f} seconds')
+        print(f'BLEURT-20 runtime on the tedtalks data for {file_name[19:-3]}: {total_time:.2f} seconds')
         print('==================')
         
         ted_data = pd.DataFrame(data_dict)
