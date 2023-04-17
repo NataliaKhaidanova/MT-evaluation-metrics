@@ -8,6 +8,7 @@ Runtime on GPU (via GoogleColab, no subscription):
 
 one file ca. 3,671.01 seconds (61.18 minutes); all files ca. 44,052.12 seconds (734.20 minutes, 12 hours 14 minutes) 
 
+- Facebook-AI 4,094.04 seconds (CPU? GoogleColab disconnected from GPU)
 - metricsystem1 2,894.77 seconds
 - metricsystem2 3,357.26 seconds
 - metricsystem3 3,671.01 seconds
