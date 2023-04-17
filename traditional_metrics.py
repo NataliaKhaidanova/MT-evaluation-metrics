@@ -56,13 +56,7 @@ for file_name in os.listdir(news_candidates):
                 sacre_ter = sacrebleu.sentence_ter(candidate, sacre_references)
                 sacre_ter_scores.append(f'{sacre_ter.score:.2f}')
                 
-            except AttributeError:
-                bleu_scores.append('0.00')
-                sacre_bleu_scores.append('0.00')
-                #chrf2_scores.append('0.00')
-                sacre_chrf2_scores.append('0.00')
-                sacre_ter_scores.append('0.00')
-            except TypeError:
+            except Exception:
                 bleu_scores.append('0.00')
                 sacre_bleu_scores.append('0.00')
                 #chrf2_scores.append('0.00')
