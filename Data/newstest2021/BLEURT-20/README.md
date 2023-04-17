@@ -4,7 +4,7 @@ Runtime on CPU:
 
 one file ca. 6,089.12 seconds (101.48 minutes); all files ca. 73,069.44 seconds (1,217.82 minutes, 20 hours 18 minutes)
 
-- Facebook-AI 4,094.04 seconds (GoogleColab CPU)
+- Facebook-AI 4,094.04 seconds (GoogleColab CPU), 6,089.12 seconds (local CPU)
 - Online-G 4,088.37 seconds (GoogleColab CPU)
 
 Runtime on GPU (via GoogleColab, no subscription):
