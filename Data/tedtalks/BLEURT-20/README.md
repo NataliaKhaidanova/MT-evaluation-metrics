@@ -12,5 +12,6 @@ Runtime on GPU (via GoogleColab, no subscription):
 
 - Online-B 602.12 seconds
 - Online-Y 620.69 seconds
+- metricsystem1 605.30 seconds
 
 The time varies with each run.
