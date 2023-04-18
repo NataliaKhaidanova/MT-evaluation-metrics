@@ -8,6 +8,8 @@ one file ca. 2,565.85 seconds (42.76 minutes)
 
 Runtime on TPU (via GoogleColab):
 
+- Online-B 602.12 seconds
+
 Runtime on GPU (via GoogleColab, no subscription):
 
 - Online-Y 620.69 seconds
