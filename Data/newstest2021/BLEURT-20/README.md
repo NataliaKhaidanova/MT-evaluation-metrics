@@ -20,6 +20,7 @@ one file ca. 3,671.01 seconds (61.18 minutes); all files ca. 44,052.12 seconds (
 - metricsystem5 3,335.11 seconds
 - Online-B 2,654.01 seconds
 - Online-Y 3,117.44 seconds
+- Online-W 3,184.34 seconds
 - NiuTrans 3,068.12 seconds
 
 The time varies with each run.
