@@ -10,6 +10,7 @@ Runtime on CPU (via GoogleColab):
 
 - Manifold 629.79 seconds
 - Nemo 627.71 seconds
+- NiuTrans 614.46 seconds
 - Online-A 628.52 seconds
 - Online-B 602.12 seconds
 - Online-G 637.74 seconds
