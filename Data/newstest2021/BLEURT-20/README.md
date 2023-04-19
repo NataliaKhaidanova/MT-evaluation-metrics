@@ -2,22 +2,22 @@ BLEURT-20 scores for the newstest2021 data (langauge pair: en-ru)(WMT-21 Metrics
 
 Runtime on CPU (local):
 
-one file ca. 6,089.12 seconds (101.48 minutes); all files ca. 73,069.44 seconds (1,217.82 minutes, 20 hours 18 minutes)
+one file ca. 6,089.12 seconds (101.48 minutes); all files ca. 85,247.68 seconds (1,420.79 minutes, 23 hours 41 minutes)
 
 - Facebook-AI 6,089.12 seconds 
 
 Runtime on CPU (via GoogleColab):
 
-one file ca. 3,881.96 seconds (64.70 minutes); all files ca. 46,583.52 seconds (776.40 minutes, 12 hours 56 minutes)
+one file ca. 3,881.96 seconds (64.70 minutes); all files ca. 54,347.44 seconds (905.79 minutes, 15 hours 6 minutes)
 
 - Facebook-AI 4,094.04 seconds 
 - Manifold 3,136.56 seconds 
 - Online-A 4,208.85 seconds 
 - Online-G 4,088.37 seconds 
 
-Runtime on GPU (via GoogleColab, no subscription):
+Runtime on GPU (via GoogleColab, standard):
 
-one file ca. 3,227.21 seconds (53.79 minutes); all files ca. 38,726.52 seconds (645.44 minutes, 10 hours 45 minutes) 
+one file ca. 3,227.21 seconds (53.79 minutes); all files ca. 45,180.94 seconds (753.01 minutes, 12 hours 33 minutes) 
 
 - Nemo 3,318.99 seconds
 - metricsystem1 2,894.77 seconds
