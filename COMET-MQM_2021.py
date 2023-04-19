@@ -17,9 +17,9 @@ def load_comet_model(checkpoint_path, hparams_path):
     :return: wmt21-comet-mqm model
     """   
     str2model = {'referenceless_regression_metric': ReferencelessRegression,
-                'regression_metric': RegressionMetric,
-                'ranking_metric': RankingMetric,
-                'unified_metric': UnifiedMetric}
+                 'regression_metric': RegressionMetric,
+                 'ranking_metric': RankingMetric,
+                 'unified_metric': UnifiedMetric}
 
     with open(hparams_path) as yaml_file:
         hparams = yaml.load(yaml_file.read(), Loader=yaml.FullLoader)
