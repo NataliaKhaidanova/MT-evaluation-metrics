@@ -8,6 +8,7 @@ one file ca. 2,565.85 seconds (42.76 minutes)
 
 Runtime on CPU (via GoogleColab):
 
+- Manifold 629.79 seconds
 - Online-A 628.52 seconds
 - Online-B 602.12 seconds
 - Online-Y 620.69 seconds
