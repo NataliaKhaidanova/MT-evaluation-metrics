@@ -6,14 +6,15 @@ one file ca. 2,565.85 seconds (42.76 minutes)
 
 - Facebook-AI 2,565.85 seconds
 
-Runtime on TPU (via GoogleColab):
-
-Runtime on GPU (via GoogleColab, no subscription):
+Runtime on CPU (via GoogleColab):
 
 - Online-A 628.52 seconds
 - Online-B 602.12 seconds
 - Online-Y 620.69 seconds
 - metricsystem1 605.30 seconds
 - metricsystem3 599.72 seconds
+
+Runtime on GPU (via GoogleColab, no subscription):
+
 
 The time varies with each run.
