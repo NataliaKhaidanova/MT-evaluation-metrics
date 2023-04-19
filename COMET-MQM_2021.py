@@ -1,10 +1,34 @@
-import pandas as pd
-import tarfile
-import os
+import yaml
+from comet.models.regression.referenceless import ReferencelessRegression
 from comet.models.regression.regression_metric import RegressionMetric
+from comet.models.ranking.ranking_metric import RankingMetric
+from comet.models.multitask.unified_metric import UnifiedMetric
+import pandas as pd
+import os
 import time
 
 
+def load_comet_model(checkpoint_path, hparams_path):
+    """
+    Load wmt21-comet-mqm model.
+    
+    :param str checkpoint_path: path to the model.ckpt file 
+    :param str hparams_path: path to the hparams.yaml file 
+    :return: wmt21-comet-mqm model
+    """   
+    str2model = {'referenceless_regression_metric': ReferencelessRegression,
+                'regression_metric': RegressionMetric,
+                'ranking_metric': RankingMetric,
+                'unified_metric': UnifiedMetric}
+
+    with open(hparams_path) as yaml_file:
+        hparams = yaml.load(yaml_file.read(), Loader=yaml.FullLoader)
+        model_class = str2model[hparams['class_identifier']]
+        model = model_class.load_from_checkpoint(checkpoint_path, load_pretrained_weights=False)
+
+        return model
+    
+    
 news_data = pd.read_csv(r'all_news_data.tsv', sep='\t') 
 news_candidates = r'WMT21-data/system-outputs/newstest2021/en-ru'
 news_source = list(news_data['news_source'])
@@ -15,8 +39,10 @@ all_news_references = []
 for A, B in zip(news_references_A, news_references_B):
     all_news_references.append([A.split(), B.split()])
 
-model_checkpoint_path = r'/wmt21-comet-mqm/checkpoints/model.ckpt'
-comet_mqm_2021_model = RegressionMetric.load_from_checkpoint(model_checkpoint_path)
+checkpoint_path = r'/wmt21-comet-mqm/checkpoints/model.ckpt'
+hparams_path = r'//wmt21-comet-mqm/hparams.yaml'
+#comet_mqm_2021_model = RegressionMetric.load_from_checkpoint(checkpoint_path) # only checkpoints
+comet_mqm_2021_model = load_comet_model(checkpoint_path, hparams_path) # checkpoints and hyperparameters (works the same)
 
 
 for file_name in os.listdir(news_candidates):
