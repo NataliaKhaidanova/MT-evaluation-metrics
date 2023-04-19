@@ -10,6 +10,7 @@ Runtime on TPU (via GoogleColab):
 
 Runtime on GPU (via GoogleColab, no subscription):
 
+- Online-A 628.52 seconds
 - Online-B 602.12 seconds
 - Online-Y 620.69 seconds
 - metricsystem1 605.30 seconds
