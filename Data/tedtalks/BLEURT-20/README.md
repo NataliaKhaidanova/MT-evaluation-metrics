@@ -12,6 +12,7 @@ Runtime on CPU (via GoogleColab):
 - Nemo 627.71 seconds
 - Online-A 628.52 seconds
 - Online-B 602.12 seconds
+- Online-W 630.49 seconds
 - Online-Y 620.69 seconds
 - metricsystem1 605.30 seconds
 - metricsystem3 599.72 seconds
