@@ -12,7 +12,7 @@ Observations:
 
 - BLEURT-20 does not support more than one reference. Therefore, the scores for the newstest2021 data are cumputed separatelly for each reference. 
  
- The time need to compute BLEURT-20 for all datafiles: 
+BLEURT-20 runtime for all datafiles: 
  
 On CPU (local): ca. 33 hours 40 minutes; on CPU (via GoogleColab): ca. 17 hours 31 minutes; on GPU (via GoogleColab, standard): unknown 
 
