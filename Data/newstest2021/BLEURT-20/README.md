@@ -6,7 +6,7 @@ one file ca. 6,089.12 seconds (101.48 minutes); all files ca. 73,069.44 seconds 
 
 - Facebook-AI 6,089.12 seconds 
 
-Runtime on TPU (via GoogleColab):
+Runtime on CPU (via GoogleColab):
 
 one file ca. 3,881.96 seconds (64.70 minutes); all files ca. 46,583.52 seconds (776.40 minutes, 12 hours 56 minutes)
 
