@@ -46,6 +46,23 @@ for file_name in os.listdir(news_candidates):
             except Exception:
                 comet_mqm_2021_scores_ref_A.append('0.00')
                 comet_mqm_2021_scores_ref_B.append('0.00')
+                
+            if count == 250:
+                print('------------------')
+                print('SCORES FOR 250 CANDIDATES ARE COMPUTED') 
+                print('------------------')
+            if count == 501:
+                print('------------------')
+                print('HALF OF THE SCORES IS COMPUTED') 
+                print('------------------')
+            if count == 800:
+                print('------------------')
+                print('SCORES FOR 800 CANDIDATES ARE COMPUTED')  
+                print('------------------')
+            if count == 950:
+                print('------------------')
+                print('ALMOST DONE')
+                print('------------------')
                           
         data_dict['COMET-MQM_2021_ref_A'] = comet_mqm_2021_scores_ref_A 
         data_dict['COMET-MQM_2021_ref_B'] = comet_mqm_2021_scores_ref_B  
