@@ -39,8 +39,8 @@ all_news_references = []
 for A, B in zip(news_references_A, news_references_B):
     all_news_references.append([A.split(), B.split()])
 
-checkpoint_path = r'/wmt21-comet-mqm/checkpoints/model.ckpt'
-hparams_path = r'//wmt21-comet-mqm/hparams.yaml'
+checkpoint_path = r'wmt21-comet-mqm/checkpoints/model.ckpt'
+hparams_path = r'wmt21-comet-mqm/hparams.yaml'
 #comet_mqm_2021_model = RegressionMetric.load_from_checkpoint(checkpoint_path) # only checkpoints
 comet_mqm_2021_model = load_comet_model(checkpoint_path, hparams_path) # checkpoints and hyperparameters (works the same)
 
