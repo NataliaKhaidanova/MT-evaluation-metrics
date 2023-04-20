@@ -23,10 +23,10 @@ def load_comet_model(checkpoint_path, hparams_path):
 
     with open(hparams_path) as yaml_file:
         hparams = yaml.load(yaml_file.read(), Loader=yaml.FullLoader)
-        model_class = str2model[hparams['class_identifier']]
-        model = model_class.load_from_checkpoint(checkpoint_path, load_pretrained_weights=False)
+    model_class = str2model[hparams['class_identifier']]
+    model = model_class.load_from_checkpoint(checkpoint_path, load_pretrained_weights=False)
 
-        return model
+    return model
     
     
 news_data = pd.read_csv(r'all_news_data.tsv', sep='\t') 
