@@ -11,5 +11,6 @@ one file ca. 5,331.26 seconds (88.85 minutes, 1 hour 29 minutes)
 Runtime on GPU (via GoogleColab, standard):
 
 - Facebook-AI 4,957.06 seconds
+- Manifold 5,121.30 seconds
 
 The time varies with each run.
