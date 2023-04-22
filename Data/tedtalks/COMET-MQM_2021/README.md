@@ -9,6 +9,7 @@ Runtime on CPU (via GoogleColab):
 - Nemo 1,252.70 seconds
 - NiuTrans 1,273.28 seconds
 - Online-A 1,309.92 seconds
+- Online-B 1,305.78 seconds
 
 Runtime on GPU (via GoogleColab, standard):
 
