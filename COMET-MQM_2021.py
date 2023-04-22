@@ -120,7 +120,7 @@ for file_name in os.listdir(ted_candidates):
             count += 1
             inputs = [{'src':source,'mt':candidate,'ref':reference}]             
             comet_mqm_2021_score = comet_mqm_2021_model.predict(inputs, batch_size=8, gpus=1)
-            comet_mqm_2021_scores.append(f'{comet_mqm_2021_score[0][0]:.2f}')
+            comet_mqm_2021_scores.append(f'{comet_mqm_2021_score[0][0]:.3f}')
                               
             if count == 120:
                 print('------------------')
