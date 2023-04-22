@@ -6,6 +6,7 @@ Runtime on CPU (via GoogleColab):
 
 - Facebook-AI 1,135.44 seconds
 - Nemo 1,252.70 seconds
+- NiuTrans 1,273.28 seconds
 
 Runtime on GPU (via GoogleColab, standard):
 
