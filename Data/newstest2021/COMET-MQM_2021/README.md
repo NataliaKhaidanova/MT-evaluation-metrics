@@ -11,6 +11,7 @@ one file ca. 5,331.26 seconds (88.85 minutes, 1 hour 29 minutes)
 - NiuTrans 6,290.63 seconds
 - Online-A 5,759.71 seconds
 - Online-B 6,116.01 seconds
+- Online-G 5,840.69 seconds
 
 Runtime on GPU (via GoogleColab, standard):
 
