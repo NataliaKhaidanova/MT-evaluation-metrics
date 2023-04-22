@@ -60,11 +60,8 @@ for file_name in os.listdir(news_candidates):
         for source, references, candidate in zip(news_source, all_news_references, candidates):
             count += 1
             references = [' '.join(x) for x in references]  
-            inputs_ref_A, inputs_ref_B = [], []
-            data_ref_A_dict = {'src':source,'mt':candidate,'ref':references[0]}
-            data_ref_B_dict = {'src':source,'mt':candidate,'ref':references[1]}
-            inputs_ref_A.append(data_ref_A_dict)
-            inputs_ref_B.append(data_ref_B_dict)
+            inputs_ref_A = [{'src':source,'mt':candidate,'ref':references[0]}]
+            inputs_ref_B = [{'src':source,'mt':candidate,'ref':references[1]}]
             try:
                 # compute COMET-QE-MQM_2021 scores for reference A
                 comet_qe_mqm_2021_score_ref_A = comet_qe_mqm_2021_model.predict(inputs_ref_A, batch_size=8, gpus=1)
