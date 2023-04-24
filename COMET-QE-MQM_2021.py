@@ -51,27 +51,20 @@ comet_qe_mqm_2021_model = load_from_checkpoint(model_path)
 for file_name in os.listdir(news_candidates):
     if file_name[23:-3] not in ['ref-A','ref-B','']:
 
-        data_dict, comet_qe_mqm_2021_scores_ref_A, comet_qe_mqm_2021_scores_ref_B = {}, [], []
+        data_dict, comet_qe_mqm_2021_scores = {}, []
         start_time = time.time()
         count = 0
         print(f'computing scores for {file_name[23:-3]}:')
         candidates = list(news_data[file_name[23:-3]])
 
-        for source, references, candidate in zip(news_source, all_news_references, candidates):
+        for source, candidate in zip(news_source, candidates):
             count += 1
-            references = [' '.join(x) for x in references]  
-            inputs_ref_A = [{'src':source,'mt':candidate,'ref':references[0]}]
-            inputs_ref_B = [{'src':source,'mt':candidate,'ref':references[1]}]
+            inputs = [{'src':source,'mt':candidate}]
             try:
-                # compute COMET-QE-MQM_2021 scores for reference A
-                comet_qe_mqm_2021_score_ref_A = comet_qe_mqm_2021_model.predict(inputs_ref_A, batch_size=8, gpus=1)
-                comet_qe_mqm_2021_scores_ref_A.append(f'{comet_qe_mqm_2021_score_ref_A[0][0]:.2f}')
-                # compute COMET-QE-MQM_2021 scores for reference B
-                comet_qe_mqm_2021_score_ref_B = comet_qe_mqm_2021_model.predict(inputs_ref_B, batch_size=8, gpus=1)
-                comet_qe_mqm_2021_scores_ref_B.append(f'{comet_qe_mqm_2021_score_ref_B[0][0]:.2f}')
+                comet_qe_mqm_2021_score = comet_qe_mqm_2021_model.predict(inputs, batch_size=8, gpus=1)
+                comet_qe_mqm_2021_scores.append(f'{comet_qe_mqm_2021_score[0][0]:.3f}')
             except Exception:
-                comet_qe_mqm_2021_scores_ref_A.append('0.00')
-                comet_qe_mqm_2021_scores_ref_B.append('0.00')
+                comet_qe_mqm_2021_scores.append('0.000')
                 
             if count == 250:
                 print('------------------')
@@ -89,9 +82,8 @@ for file_name in os.listdir(news_candidates):
                 print('------------------')
                 print('ALMOST DONE')
                 print('------------------')
-                          
-        data_dict['COMET-QE-MQM_2021_ref_A'] = comet_qe_mqm_2021_scores_ref_A 
-        data_dict['COMET-QE-MQM_2021_ref_B'] = comet_qe_mqm_2021_scores_ref_B  
+
+        data_dict['COMET-QE-MQM_2021'] = comet_qe_mqm_2021_scores                  
 
         end_time = time.time()
         total_time = end_time - start_time
