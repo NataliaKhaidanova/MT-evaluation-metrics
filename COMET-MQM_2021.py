@@ -70,10 +70,10 @@ for file_name in os.listdir(news_candidates):
             try:
                 # compute COMET-MQM_2021 scores for reference A
                 comet_mqm_2021_score_ref_A = comet_mqm_2021_model.predict(inputs_ref_A, batch_size=8, gpus=1)
-                comet_mqm_2021_scores_ref_A.append(f'{comet_mqm_2021_score_ref_A[0][0]:.2f}')
+                comet_mqm_2021_scores_ref_A.append(f'{comet_mqm_2021_score_ref_A[0][0]:.3f}')
                 # compute COMET-MQM_2021 scores for reference B
                 comet_mqm_2021_score_ref_B = comet_mqm_2021_model.predict(inputs_ref_B, batch_size=8, gpus=1)
-                comet_mqm_2021_scores_ref_B.append(f'{comet_mqm_2021_score_ref_B[0][0]:.2f}')
+                comet_mqm_2021_scores_ref_B.append(f'{comet_mqm_2021_score_ref_B[0][0]:.3f}')
             except Exception:
                 comet_mqm_2021_scores_ref_A.append('0.00')
                 comet_mqm_2021_scores_ref_B.append('0.00')
