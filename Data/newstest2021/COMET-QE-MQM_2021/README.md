@@ -3,6 +3,7 @@ COMET-MQM_2021 scores for the newstest2021 data (langauge pair: en-ru)(WMT-21 Me
 Runtime on CPU (local):
 
 Runtime on CPU (via GoogleColab):
+- NiuTrans 2,033.24 seconds
 
 Runtime on GPU (via GoogleColab, standard):
 
