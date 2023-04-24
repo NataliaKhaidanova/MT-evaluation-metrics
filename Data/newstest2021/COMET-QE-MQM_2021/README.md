@@ -7,5 +7,6 @@ Runtime on CPU (via GoogleColab):
 Runtime on GPU (via GoogleColab, standard):
 
 - Facebook-AI 2,372.35 seconds
+- Manifold 2,495.77 seconds
 
 The time varies with each run.
