@@ -4,6 +4,7 @@ Runtime on CPU (local):
 
 Runtime on CPU (via GoogleColab):
 - NiuTrans 2,033.24 seconds
+- Online-A 2,118.38 seconds
 
 Runtime on GPU (via GoogleColab, standard):
 
