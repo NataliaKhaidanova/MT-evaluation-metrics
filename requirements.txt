@@ -1,2 +1,8 @@
 To compute BLEURT-20:
+
 - pip install git+https://github.com/lucadiliello/bleurt-pytorch.git
+
+To compute COMET-MQM_2021 or COMET-QE-MQM_2021:
+
+- pip install --upgrade pip  # ensures that pip is current 
+- pip install unbabel-comet
