@@ -4,6 +4,8 @@ Runtime on CPU (local):
 
 Runtime on CPU (via GoogleColab):
 
+one file ca. 1,298.46 seconds (21.64 minutes); all files ca. 18,178.44 seconds (302.97 minutes, 5 hours 3 minutes)
+
 - Facebook-AI 1,135.44 seconds
 - Manifold 1,300.06 seconds
 - Nemo 1,252.70 seconds
