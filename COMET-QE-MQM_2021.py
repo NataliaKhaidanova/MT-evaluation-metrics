@@ -33,12 +33,10 @@ import time
 news_data = pd.read_csv(r'all_news_data.tsv', sep='\t') 
 news_candidates = r'WMT21-data/system-outputs/newstest2021/en-ru'
 news_source = list(news_data['news_source'])
-news_references_A = list(news_data['news_ref_A'])
-news_references_B = list(news_data['news_ref_B'])
-
-all_news_references = []
-for A, B in zip(news_references_A, news_references_B):
-    all_news_references.append([A.split(), B.split()])
+    
+ted_data = pd.read_csv(r'all_TED_data.tsv', sep='\t') 
+ted_candidates = r'WMT21-data/system-outputs/tedtalks/en-ru'
+ted_source = list(ted_data['TED_source'])
 
 #checkpoint_path = r'wmt21-comet-qe-mqm/checkpoints/model.ckpt'
 #hparams_path = r'wmt21-comet-qe-mqm/hparams.yaml'
@@ -92,3 +90,46 @@ for file_name in os.listdir(news_candidates):
           
         news_comet_qe_mqm_2021_data = pd.DataFrame(data_dict)
         news_comet_qe_mqm_2021_data.to_csv(f'Data/newstest2021/{file_name[23:-3]}_COMET-QE-MQM_2021.tsv', sep='\t', index=False) 
+        
+        
+for file_name in os.listdir(ted_candidates):
+    if file_name[19:-3] != 'ref-A':
+
+        data_dict, comet_qe_mqm_2021_scores = {}, []
+        start_time = time.time()
+        count = 0
+        print(f'computing scores for {file_name[19:-3]}:')
+        candidates = list(ted_data[file_name[19:-3]])
+
+        for source, candidate in zip(ted_source, candidates):
+            count += 1
+            inputs = [{'src':source,'mt':candidate}]             
+            comet_qe_mqm_2021_score = comet_qe_mqm_2021_model.predict(inputs, batch_size=8, gpus=1)
+            comet_qe_mqm_2021_scores.append(f'{comet_qe_mqm_2021_score[0][0]:.3f}')
+                              
+            if count == 120:
+                print('------------------')
+                print('SCORES FOR 120 CANDIDATES ARE COMPUTED') 
+                print('------------------')
+            if count == 256:
+                print('------------------')
+                print('HALF OF THE SCORES IS COMPUTED') 
+                print('------------------')
+            if count == 350:
+                print('------------------')
+                print('SCORES FOR 350 CANDIDATES ARE COMPUTED')  
+                print('------------------')
+            if count == 480:
+                print('------------------')
+                print('ALMOST DONE')
+                print('------------------')
+                          
+        data_dict['COMET-QE-MQM_2021'] = comet_qe_mqm_2021_scores
+
+        end_time = time.time()
+        total_time = end_time - start_time
+        print(f'COMET-QE-MQM_2021 runtime on the tedtalks data for {file_name[19:-3]}: {total_time:.2f} seconds')
+        print('==================')
+          
+        news_comet_qe_mqm_2021_data = pd.DataFrame(data_dict)
+        news_comet_qe_mqm_2021_data.to_csv(f'Data/tedtalks/{file_name[19:-3]}_COMET-QE-MQM_2021.tsv', sep='\t', index=False) 
