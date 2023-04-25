@@ -1,4 +1,4 @@
-COMET-MQM_2021 scores for the newstest2021 data (langauge pair: en-ru)(WMT-21 Metrics task):
+COMET-QE-MQM_2021 scores for the newstest2021 data (langauge pair: en-ru)(WMT-21 Metrics task):
 
 Runtime on CPU (local):
 
