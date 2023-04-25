@@ -13,6 +13,7 @@ Runtime on CPU (via GoogleColab):
 - metricsystem2 2,039.04 seconds
 - metricsystem3 2,144.42 seconds
 - metricsystem4 2,429.61 seconds
+- metricsystem5 2,333.22 seconds
 
 Runtime on GPU (via GoogleColab, standard):
 
