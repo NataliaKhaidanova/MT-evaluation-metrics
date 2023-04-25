@@ -9,5 +9,6 @@ Runtime on GPU (via GoogleColab, standard):
 - Facebook-AI 1,249.01 seconds
 - Nemo 1,271.52 seconds
 - NiuTrans 1,273.11 seconds
+- Manifold 1,281.16 seconds
 
 The time varies with each run.
