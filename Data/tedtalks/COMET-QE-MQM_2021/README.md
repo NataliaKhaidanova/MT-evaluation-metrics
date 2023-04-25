@@ -6,6 +6,7 @@ Runtime on CPU (via GoogleColab):
 
 - Online-A 713.83 seconds
 - Online-B 861.18 seconds
+- Online-G 921.01 seconds
 
 Runtime on GPU (via GoogleColab, standard):
 
