@@ -4,6 +4,8 @@ Runtime on CPU (local):
 
 Runtime on CPU (via GoogleColab):
 
+one file ca. 840.02 seconds (14.00 minutes); all files ca. 11,760.28 seconds (196.00 minutes, 3 hours 16 minutes)
+
 - Online-A 713.83 seconds
 - Online-B 861.18 seconds
 - Online-G 921.01 seconds
@@ -16,6 +18,8 @@ Runtime on CPU (via GoogleColab):
 - metricsystem5 845.03 seconds
 
 Runtime on GPU (via GoogleColab, standard):
+
+???
 
 - Facebook-AI 1,249.01 seconds
 - Nemo 1,271.52 seconds
