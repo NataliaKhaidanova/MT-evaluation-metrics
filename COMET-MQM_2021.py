@@ -75,8 +75,8 @@ for file_name in os.listdir(news_candidates):
                 comet_mqm_2021_score_ref_B = comet_mqm_2021_model.predict(inputs_ref_B, batch_size=8, gpus=1)
                 comet_mqm_2021_scores_ref_B.append(f'{comet_mqm_2021_score_ref_B[0][0]:.3f}')
             except Exception:
-                comet_mqm_2021_scores_ref_A.append('0.00')
-                comet_mqm_2021_scores_ref_B.append('0.00')
+                comet_mqm_2021_scores_ref_A.append('0.000')
+                comet_mqm_2021_scores_ref_B.append('0.000')
                 
             if count == 250:
                 print('------------------')
