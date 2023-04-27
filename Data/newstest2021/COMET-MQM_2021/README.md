@@ -13,6 +13,7 @@ Runtime on CPU (via GoogleColab):
 - Online-W 5,139.56 seconds
 - Online-Y 5,629.21 seconds
 - metricsystem3 6,018.25 seconds
+- metricsystem4 6,653.83 seconds
 
 Runtime on GPU (via GoogleColab, standard):
 
