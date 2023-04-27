@@ -17,5 +17,6 @@ Runtime on GPU (via GoogleColab, standard):
 
 - Facebook-AI 4,957.06 seconds
 - Manifold 5,121.30 seconds
+- metricsystem1 4,934.33 seconds
 
 The time varies with each run.
