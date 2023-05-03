@@ -4,6 +4,8 @@ Runtime on CPU (local):
 
 Runtime on CPU (via GoogleColab):
 
+one file ca. 5,960.85 seconds (99.35 minutes); all files ca. 83,451.90 seconds (1,390.87 minutes, 23 hours 11 minutes)
+
 - Facebook-AI 5,331.26 seconds
 - Nemo 5,645.58 seconds
 - NiuTrans 6,290.63 seconds
@@ -17,6 +19,8 @@ Runtime on CPU (via GoogleColab):
 - metricsystem5 7,144.59 seconds
 
 Runtime on GPU (via GoogleColab, standard):
+
+one file ca. 5,041.06 seconds (84.02 minutes); all files ca. 70,574.84 seconds (1,176.25 minutes, 19 hours 36 minutes)
 
 - Facebook-AI 4,957.06 seconds
 - Manifold 5,121.30 seconds
