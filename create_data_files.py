@@ -1,11 +1,12 @@
 import pandas as pd
 import os
 
-
+# GET SOURCE, REFERENCE(S), MACHINE-TRANSLATION OUTPUTS PER DOMAIN
 def read_file(file_path):
     """
     Read the data.
-    :param list string: path to the file
+    
+    :param string file_path: path to the file
     :return: list of strings (sentences)
     """
     with open(file_path, 'r', encoding='utf-8') as f:
@@ -59,3 +60,127 @@ news_df.to_csv('all_news_data.tsv', sep='\t', index=False)
 
 ted_df = pd.DataFrame(ted_data_dict)
 ted_df.to_csv('all_TED_data.tsv', sep='\t', index=False) 
+
+
+# GET HUMAN JUDGMENTS FOR EACH TEAM PER DOMAIN, CORRELATION AND METRIC TYPE
+
+file_path_1 = r'WMT21-data/validation/ref-metric.seg.score'
+file_path_2 = r'WMT21-data/validation/ref-metric.sys.score'
+file_path_3 = r'WMT21-data/validation/src-metric.seg.score'
+file_path_4 = r'WMT21-data/validation/src-metric.sys.score'
+
+
+def get_scores(metric_type, langs, domains, refs, teams, scores):
+    """
+    Put human judgment scores for each team in a dict.
+    
+    :param string metric_type: if reference-based, metric_type == 'ref'; if reference-free, metric_type == 'src'
+    :param langs: list of language pairs
+    :param domains: list of domains
+    :param refs: list of reference types
+    :param teams: list of teams (machine-translation systems) 
+    :param teams: list of human judgment scores
+    :return: two dicts: for newstest2021 and for tedtalks
+    """
+    news_data_dict, ted_data_dict = {}, {}
+
+    for lang, domain, ref, team, score in zip(langs, domains, refs, teams, scores):
+        
+        if metric_type == 'ref':
+            if lang == 'en-ru' and domain == 'newstest2021' and ref == 'ref-A' and team != 'ref-B':
+                if team not in news_data_dict:
+                    news_data_dict[team] = []
+                news_data_dict[team].append(score)
+                
+        if metric_type == 'src':
+            if lang == 'en-ru' and domain == 'newstest2021' and team not in ['ref-A', 'ref-B']:
+                if team not in news_data_dict:
+                    news_data_dict[team] = []
+                news_data_dict[team].append(score)
+
+        if lang == 'en-ru' and domain == 'tedtalks':
+            if team not in ted_data_dict:
+                ted_data_dict[team] = []
+            ted_data_dict[team].append(score)
+            
+    return news_data_dict, ted_data_dict
+
+
+def save_scores(file_path, correlation, metric_type):
+    """
+    Save all scores per team in a .tsv file. 
+    
+    :param string file_path: path to the validation file
+    :param string correlation: if segment-level, correlation == 'seg'; if system-level, correlation == 'sys'
+    :param string metric_type: if reference-based, metric_type == 'ref'; if reference-free, metric_type == 'src'
+    :return: None
+    """
+
+    if correlation == 'seg':
+
+        labels = ['file','lang','domain','ref','team','src_index','score']
+        data = pd.read_csv(file_path, sep='\t', on_bad_lines='skip', keep_default_na=False, names=labels) 
+
+        langs = list(data['lang'])
+        domains = list(data['domain'])
+        refs = list(data['ref'])
+        teams = list(data['team'])
+        scores = list(data['score'])
+
+        if metric_type == 'ref':
+
+            news_data_dict, ted_data_dict = get_scores('ref', langs, domains, refs, teams, scores)
+
+            news_df = pd.DataFrame(news_data_dict)
+            news_df.to_csv('all_news_seg_ref_scores.tsv', sep='\t', index=False) 
+
+            ted_df = pd.DataFrame(ted_data_dict)
+            ted_df.to_csv('all_TED_seg_ref_scores.tsv', sep='\t', index=False) 
+
+        if metric_type == 'src':
+
+            news_data_dict, ted_data_dict = get_scores('src', langs, domains, refs, teams, scores)
+
+            news_df = pd.DataFrame(news_data_dict)
+            news_df.to_csv('all_news_seg_src_scores.tsv', sep='\t', index=False) 
+
+            ted_df = pd.DataFrame(ted_data_dict)
+            ted_df.to_csv('all_TED_seg_src_scores.tsv', sep='\t', index=False) 
+
+    if correlation == 'sys':
+
+        labels = ['file','lang','domain','ref','team','score']
+        data = pd.read_csv(file_path, sep='\t', on_bad_lines='skip', keep_default_na=False, names=labels) 
+
+        langs = list(data['lang'])
+        domains = list(data['domain'])
+        refs = list(data['ref'])
+        teams = list(data['team'])
+        scores = list(data['score'])
+
+        if metric_type == 'ref':
+
+            news_data_dict, ted_data_dict = get_scores('ref', langs, domains, refs, teams, scores)
+
+            news_df = pd.DataFrame(news_data_dict)
+            news_df.to_csv('all_news_sys_ref_scores.tsv', sep='\t', index=False) 
+
+            ted_df = pd.DataFrame(ted_data_dict)
+            ted_df.to_csv('all_TED_sys_ref_scores.tsv', sep='\t', index=False) 
+            
+        if metric_type == 'src':
+            
+            news_data_dict, ted_data_dict = get_scores('src', langs, domains, refs, teams, scores)
+
+            news_df = pd.DataFrame(news_data_dict)
+            news_df.to_csv('all_news_sys_src_scores.tsv', sep='\t', index=False) 
+
+            ted_df = pd.DataFrame(ted_data_dict)
+            ted_df.to_csv('all_TED_sys_src_scores.tsv', sep='\t', index=False) 
+            
+            
+if __name__ == '__main__':
+    save_scores(file_path_1, 'seg', 'ref')
+    save_scores(file_path_2, 'sys', 'ref')
+    save_scores(file_path_3, 'seg', 'src')
+    save_scores(file_path_4, 'sys', 'src')
