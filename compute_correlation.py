@@ -99,45 +99,45 @@ if __name__ == '__main__':
 
     print('newstest2021:')
     print("Pearson's r")
-    print('===================')
+    print('==================')
     for metric in metrics:
         print(metric)
         compute_correlation('newstest2021', metric, pearsonr)
-        print('-------------------')
+        print('------------------')
 
     print("Spearman's p")
-    print('===================')
+    print('==================')
     for metric in metrics:
         print(metric)
         compute_correlation('newstest2021', metric, spearmanr)
-        print('-------------------')
+        print('------------------')
 
     print("Kendall's tau")
-    print('===================')
+    print('==================')
     for metric in metrics:
         print(metric)
         compute_correlation('newstest2021', metric, kendalltau)
-        print('-------------------')
+        print('------------------')
 
     print()
     print('tedtalks:')
     print("Pearson's r")
-    print('===================')
+    print('==================')
     for metric in metrics:
         print(metric)
         compute_correlation('tedtalks', metric, pearsonr)
-        print('-------------------')
+        print('------------------')
 
     print("Spearman's p")
-    print('===================')
+    print('==================')
     for metric in metrics:
         print(metric)
         compute_correlation('tedtalks', metric, spearmanr)
-        print('-------------------')
+        print('------------------')
 
     print("Kendall's tau")
-    print('===================')
+    print('==================')
     for metric in metrics:
         print(metric)
         compute_correlation('tedtalks', metric, kendalltau)
-        print('-------------------')
+        print('------------------')
