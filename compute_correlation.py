@@ -76,12 +76,21 @@ def compute_correlation(domain, metric, measure):
                     r, p_value = measure(metric_scores, human_ratings)
                     data_dict[file[:-4]] = f'{r:.3f}'
                         
-    print(data_dict) 
-    all_values = []
-    for value in data_dict.values():
-        all_values.append(float(value))
-    average = sum(all_values) / 14
-    print(f'Average: {average:.3f}')  
+    if domain == 'newstest2021':                    
+        print(data_dict) 
+        all_values = []
+        for value in data_dict.values():
+            all_values.append(float(value))
+        average = sum(all_values) / 9
+        print(f'Average: {average:.3f}')    
+        
+    if domain == 'tedtalks':                    
+        print(data_dict) 
+        all_values = []
+        for value in data_dict.values():
+            all_values.append(float(value))
+        average = sum(all_values) / 14
+        print(f'Average: {average:.3f}')  
     
     
 if __name__ == '__main__':
