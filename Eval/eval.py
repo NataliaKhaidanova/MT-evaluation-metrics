@@ -5,6 +5,15 @@ from scipy.stats import pearsonr, spearmanr, kendalltau
 
 def compute_correlation(domain, metric, measure):
     """
+    Compute Pearson's r, Spearman's, Kendall's tau for 
+    SacreBLEU, SacreCHRF2, SacreTER, BLEURT-20, COMET-MQM_2021, COMET-QE-MQM_2021.
+    Get the correlation for both newstest2021 and tedtalks datasets. 
+    
+    :param sting domain: domain to compute the correlation for ('newstest2021' or 'tedtalks')
+    :param sting metric: the metric to compute the correlation for 
+    ('sacre_BLEU', 'sacre_TER', 'sacre_CHRF2', 'BLEURT-20', 'COMET-MQM_2021', 'COMET-QE-MQM_2021')
+    :param import from scipy.stats measure: the correlation coefficient (pearsonr, spearmanr, kendalltau)
+    :return: None
     """
     path = f'Data/{domain}/{metric}'
     
@@ -52,8 +61,7 @@ def compute_correlation(domain, metric, measure):
                         human_ratings = list(human_ratings_df[file.split('_')[0]])
                         r, p_value = measure(metric_scores, human_ratings)
                         data_dict[file.split('_')[0]] = f'{p_value:.3f}'
-                        
-                        
+                                            
     else:
         path = f'Data/{domain}'
         for file in os.listdir(path):
