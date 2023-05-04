@@ -191,6 +191,7 @@ file_path_2 = r'mt-metrics-eval-v2/wmt21.tedtalks/human-scores/en-ru.mqm.seg.sco
 file_path_3 = r'mt-metrics-eval-v2/wmt21.news/human-scores/en-ru.wmt-z.sys.score'
 file_path_4 = r'mt-metrics-eval-v2/wmt21.tedtalks/human-scores/en-ru.mqm.sys.score'
 
+
 def get_scores(file_path, systems, scores):
     """
     Put human judgment scores for each system in a dict.
@@ -207,13 +208,19 @@ def get_scores(file_path, systems, scores):
             if system not in ['refA','refB']:
                 if system not in news_data_dict:
                     news_data_dict[system] = []
-                news_data_dict[system].append(score)
+                if score != 'None':
+                    news_data_dict[system].append(float(score))
+                else:
+                    news_data_dict[system].append(0)
 
         if 'tedtalks' in file_path:
             if system != 'refA':
                 if system not in ted_data_dict:
                     ted_data_dict[system] = []
-                ted_data_dict[system].append(score)
+                if score != 'None':
+                    ted_data_dict[system].append(float(score))
+                else:
+                    ted_data_dict[system].append(0)
             
     return news_data_dict, ted_data_dict
 
