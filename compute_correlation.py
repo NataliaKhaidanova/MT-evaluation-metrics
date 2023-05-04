@@ -85,8 +85,8 @@ def compute_correlation(domain, metric, measure):
     
     
 if __name__ == '__main__':
-  
-    metrics = ['BLEURT-20','COMET-MQM_2021','COMET-QE-MQM_2021','sacre_BLEU','sacre_CHRF2','sacre_TER']
+
+    metrics = ['sacre_BLEU', 'sacre_TER', 'sacre_CHRF2', 'BLEURT-20', 'COMET-MQM_2021', 'COMET-QE-MQM_2021']
 
     print('newstest2021:')
     print("Pearson's r")
