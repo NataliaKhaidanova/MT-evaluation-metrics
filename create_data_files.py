@@ -208,19 +208,13 @@ def get_scores(file_path, systems, scores):
             if system not in ['refA','refB']:
                 if system not in news_data_dict:
                     news_data_dict[system] = []
-                if score != 'None':
-                    news_data_dict[system].append(float(score))
-                else:
-                    news_data_dict[system].append(0)
+                news_data_dict[system].append(score)
 
         if 'tedtalks' in file_path:
             if system != 'refA':
                 if system not in ted_data_dict:
                     ted_data_dict[system] = []
-                if score != 'None':
-                    ted_data_dict[system].append(float(score))
-                else:
-                    ted_data_dict[system].append(0)
+                ted_data_dict[system].append(score)
             
     return news_data_dict, ted_data_dict
 
