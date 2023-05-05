@@ -16,29 +16,29 @@ def compute_correlation(domain, metric, measure):
     :return: None
     """
     # GET NUMBER OF ANNOTATED SENTENCES PER TEST FILE
-    if metric == 'sacre_BLEU':
-        path = f'Data/{domain}'
-        for file in os.listdir(path):
-            if file.endswith('.tsv'):
-                if domain == 'newstest2021' and 'metricsystem' not in file:
+    #if metric == 'sacre_BLEU':
+        #path = f'Data/{domain}'
+        #for file in os.listdir(path):
+            #if file.endswith('.tsv'):
+                #if domain == 'newstest2021' and 'metricsystem' not in file:
 
-                    human_ratings_df = pd.read_csv(r'all_news_seg_z_scores.tsv', sep='\t', on_bad_lines='skip', keep_default_na=False)
-                    human_ratings = list(human_ratings_df[file[:-4]])
-                    annoated_human_ratings = []
-                    for human_rating in human_ratings:
-                        if human_rating != 'None':
-                            annoated_human_ratings.append(float(human_rating))
-                    print(f'Number of annoatate sentences for {file[:-4]}: {len(annoated_human_ratings)}')
+                    #human_ratings_df = pd.read_csv(r'all_news_seg_z_scores.tsv', sep='\t', on_bad_lines='skip', keep_default_na=False)
+                    #human_ratings = list(human_ratings_df[file[:-4]])
+                    #annoated_human_ratings = []
+                    #for human_rating in human_ratings:
+                        #if human_rating != 'None':
+                            #annoated_human_ratings.append(float(human_rating))
+                    #print(f'Number of annoatate sentences for {file[:-4]}: {len(annoated_human_ratings)}')
                     
-                elif domain == 'tedtalks':  
+                #elif domain == 'tedtalks':  
 
-                    human_ratings_df = pd.read_csv(r'all_TED_seg_mqm_scores.tsv', sep='\t', on_bad_lines='skip', keep_default_na=False)
-                    human_ratings = list(human_ratings_df[file[:-4]])
-                    annoated_human_ratings = []
-                    for human_rating in human_ratings:
-                        if human_rating != 'None':
-                            annoated_human_ratings.append(float(human_rating))
-                    print(f'Number of annoatate sentences for {file[:-4]}: {len(annoated_human_ratings)}')
+                    #human_ratings_df = pd.read_csv(r'all_TED_seg_mqm_scores.tsv', sep='\t', on_bad_lines='skip', keep_default_na=False)
+                    #human_ratings = list(human_ratings_df[file[:-4]])
+                    #annoated_human_ratings = []
+                    #for human_rating in human_ratings:
+                        #if human_rating != 'None':
+                            #annoated_human_ratings.append(float(human_rating))
+                    #print(f'Number of annoatate sentences for {file[:-4]}: {len(annoated_human_ratings)}')
     
     # GET CORRELATION 
     path = f'Data/{domain}/{metric}'
