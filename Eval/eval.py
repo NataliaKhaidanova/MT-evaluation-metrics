@@ -20,9 +20,9 @@ def compute_correlation(domain, metric, measure):
         #path = f'Data/{domain}'
         #for file in os.listdir(path):
             #if file.endswith('.tsv'):
-                #if domain == 'newstest2021' and 'metricsystem' not in file:
+                #if domain == 'newstest2021':
 
-                    #human_ratings_df = pd.read_csv(r'all_news_seg_z_scores.tsv', sep='\t', on_bad_lines='skip', keep_default_na=False)
+                    #human_ratings_df = pd.read_csv(r'all_news_seg_mqm_scores.tsv', sep='\t', on_bad_lines='skip', keep_default_na=False)
                     #human_ratings = list(human_ratings_df[file[:-4]])
                     #annoated_human_ratings = []
                     #for human_rating in human_ratings:
@@ -53,11 +53,11 @@ def compute_correlation(domain, metric, measure):
 
                 if metric in ['BLEURT-20', 'COMET-MQM_2021']:
                     
-                    if domain == 'newstest2021' and 'metricsystem' not in file:
+                    if domain == 'newstest2021':
                         
                         ref_A = list(file_df[f'{metric}_ref_A'])
                         ref_B = list(file_df[f'{metric}_ref_B'])
-                        human_ratings_df = pd.read_csv(r'all_news_seg_z_scores.tsv', sep='\t', on_bad_lines='skip', keep_default_na=False)
+                        human_ratings_df = pd.read_csv(r'all_news_seg_mqm_scores.tsv', sep='\t', on_bad_lines='skip', keep_default_na=False)
                         human_ratings = list(human_ratings_df[file.split('_')[0]])
                         annoated_human_ratings, corresponding_ref_A, corresponding_ref_B = [], [], []
                         for id, human_rating in enumerate(human_ratings):
@@ -85,10 +85,10 @@ def compute_correlation(domain, metric, measure):
                         
                 if metric == 'COMET-QE-MQM_2021':   
                     
-                    if domain == 'newstest2021' and 'metricsystem' not in file:
+                    if domain == 'newstest2021':
                         
                         metric_scores = list(file_df[metric])
-                        human_ratings_df = pd.read_csv(r'all_news_seg_z_scores.tsv', sep='\t', on_bad_lines='skip', keep_default_na=False) 
+                        human_ratings_df = pd.read_csv(r'all_news_seg_mqm_scores.tsv', sep='\t', on_bad_lines='skip', keep_default_na=False) 
                         human_ratings = list(human_ratings_df[file.split('_')[0]])
                         annoated_human_ratings, corresponding_metric_scores = [], []
                         for id, human_rating in enumerate(human_ratings):
@@ -118,9 +118,9 @@ def compute_correlation(domain, metric, measure):
                 file_path = f'Data/{domain}/{file.split("_")[0]}'
                 file_df = pd.read_csv(file_path, sep='\t', on_bad_lines='skip', keep_default_na=False) 
                 
-                if domain == 'newstest2021' and 'metricsystem' not in file:
+                if domain == 'newstest2021':
                     metric_scores = list(file_df[metric])
-                    human_ratings_df = pd.read_csv(r'all_news_seg_z_scores.tsv', sep='\t', on_bad_lines='skip', keep_default_na=False) 
+                    human_ratings_df = pd.read_csv(r'all_news_seg_mqm_scores.tsv', sep='\t', on_bad_lines='skip', keep_default_na=False) 
                     human_ratings = list(human_ratings_df[file[:-4]])
                     annoated_human_ratings, corresponding_metric_scores = [], []
                     for id, human_rating in enumerate(human_ratings):
