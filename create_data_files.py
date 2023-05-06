@@ -186,9 +186,9 @@ ted_df.to_csv('all_TED_data.tsv', sep='\t', index=False)
     #save_scores(file_path_4, 'sys', 'src')
     
     
-file_path_1 = r'mt-metrics-eval-v2/wmt21.news/human-scores/en-ru.wmt-z.seg.score'
+file_path_1 = r'mt-metrics-eval-v2/wmt21.news/human-scores/en-ru.mqm.seg.score'
 file_path_2 = r'mt-metrics-eval-v2/wmt21.tedtalks/human-scores/en-ru.mqm.seg.score'
-file_path_3 = r'mt-metrics-eval-v2/wmt21.news/human-scores/en-ru.wmt-z.sys.score'
+file_path_3 = r'mt-metrics-eval-v2/wmt21.news/human-scores/en-ru.mqm.sys.score'
 file_path_4 = r'mt-metrics-eval-v2/wmt21.tedtalks/human-scores/en-ru.mqm.sys.score'
 
 
@@ -240,7 +240,7 @@ def save_scores(file_path, correlation):
         
         if 'news' in file_path:
             news_df = pd.DataFrame(news_data_dict)
-            news_df.to_csv('all_news_seg_z_scores.tsv', sep='\t', index=False) 
+            news_df.to_csv('all_news_seg_mqm_scores.tsv', sep='\t', index=False) 
             
         if 'tedtalks' in file_path:
             ted_df = pd.DataFrame(ted_data_dict)
@@ -258,7 +258,7 @@ def save_scores(file_path, correlation):
         
         if 'news' in file_path:
             news_df = pd.DataFrame(news_data_dict)
-            news_df.to_csv('all_TED_sys_mqm_scores.tsv', sep='\t', index=False) 
+            news_df.to_csv('all_news_sys_mqm_scores.tsv', sep='\t', index=False) 
         if 'tedtalks'in file_path:
             ted_df = pd.DataFrame(ted_data_dict)
             ted_df.to_csv('all_TED_sys_mqm_scores.tsv', sep='\t', index=False) 
