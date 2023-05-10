@@ -4,7 +4,9 @@ Runtime on CPU (local):
 
 Runtime on CPU (via GoogleColab):
 
-one file ca. 3,881.96 seconds (64.70 minutes); all files ca. 54,347.44 seconds (905.79 minutes, 15 hours 6 minutes)
+all files BLEU: 9.60 seconds
+all files CHRF2: 16.08 seconds
+all files TER: 158.12 seconds (2 minutes, 38 seconds) 
 
 Runtime on GPU (via GoogleColab, standard):
 
