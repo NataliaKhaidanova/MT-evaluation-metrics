@@ -66,10 +66,10 @@ def compute_correlation(domain, metric, measure):
                                 corresponding_ref_A.append(float(ref_A[id]))
                                 corresponding_ref_B.append(float(ref_B[id]))
                                 
-                        r_ref_A, p_value_ref_A = measure(corresponding_ref_A, annoated_human_ratings)
-                        r_ref_B, p_value_ref_B = measure(corresponding_ref_B, annoated_human_ratings)
-                        r = (r_ref_A + r_ref_B) / 2
-                        data_dict[file.split('_')[0]] = f'{r:.3f}'
+                        cor_ref_A, p_value_ref_A = measure(corresponding_ref_A, annoated_human_ratings)
+                        cor_ref_B, p_value_ref_B = measure(corresponding_ref_B, annoated_human_ratings)
+                        cor = (cor_ref_A + cor_ref_B) / 2
+                        data_dict[file.split('_')[0]] = f'{cor:.3f}'
                         
                     elif domain == 'tedtalks':
                         metric_scores = list(file_df[metric])
@@ -80,8 +80,8 @@ def compute_correlation(domain, metric, measure):
                             if human_rating != 'None':
                                 annoated_human_ratings.append(float(human_rating))
                                 corresponding_metric_scores.append(float(metric_scores[id]))
-                        r, p_value = measure(corresponding_metric_scores, annoated_human_ratings)
-                        data_dict[file.split('_')[0]] = f'{r:.3f}'
+                        cor, p_value = measure(corresponding_metric_scores, annoated_human_ratings)
+                        data_dict[file.split('_')[0]] = f'{cor:.3f}'
                         
                 if metric == 'COMET-QE-MQM_2021':   
                     
@@ -95,8 +95,8 @@ def compute_correlation(domain, metric, measure):
                             if human_rating != 'None':
                                 annoated_human_ratings.append(float(human_rating))
                                 corresponding_metric_scores.append(float(metric_scores[id]))
-                        r, p_value = measure(corresponding_metric_scores, annoated_human_ratings)
-                        data_dict[file.split('_')[0]] = f'{r:.3f}'
+                        cor, p_value = measure(corresponding_metric_scores, annoated_human_ratings)
+                        data_dict[file.split('_')[0]] = f'{cor:.3f}'
                         
                     elif domain == 'tedtalks':
                         metric_scores = list(file_df[metric])
@@ -107,8 +107,8 @@ def compute_correlation(domain, metric, measure):
                             if human_rating != 'None':
                                 annoated_human_ratings.append(float(human_rating))
                                 corresponding_metric_scores.append(float(metric_scores[id]))
-                        r, p_value = measure(corresponding_metric_scores, annoated_human_ratings)
-                        data_dict[file.split('_')[0]] = f'{r:.3f}'
+                        cor, p_value = measure(corresponding_metric_scores, annoated_human_ratings)
+                        data_dict[file.split('_')[0]] = f'{cor:.3f}'
                                             
     else:
         path = f'Data/{domain}'
@@ -127,8 +127,8 @@ def compute_correlation(domain, metric, measure):
                         if human_rating != 'None':
                             annoated_human_ratings.append(float(human_rating))
                             corresponding_metric_scores.append(float(metric_scores[id]))
-                    r, p_value = measure(corresponding_metric_scores, annoated_human_ratings)
-                    data_dict[file[:-4]] = f'{r:.3f}'
+                    cor, p_value = measure(corresponding_metric_scores, annoated_human_ratings)
+                    data_dict[file[:-4]] = f'{cor:.3f}'
                     
                 elif domain == 'tedtalks':
                     metric_scores = list(file_df[metric])
@@ -139,24 +139,15 @@ def compute_correlation(domain, metric, measure):
                         if human_rating != 'None':
                             annoated_human_ratings.append(float(human_rating))
                             corresponding_metric_scores.append(float(metric_scores[id]))
-                    r, p_value = measure(metric_scores, human_ratings)
-                    data_dict[file[:-4]] = f'{r:.3f}'
-                        
-    if domain == 'newstest2021':                    
-        print(data_dict) 
-        all_values = []
-        for value in data_dict.values():
-            all_values.append(float(value))
-        average = sum(all_values) / 9
-        print(f'Average: {average:.3f}')    
-        
-    elif domain == 'tedtalks':                    
-        print(data_dict) 
-        all_values = []
-        for value in data_dict.values():
-            all_values.append(float(value))
-        average = sum(all_values) / 14
-        print(f'Average: {average:.3f}')  
+                    cor, p_value = measure(metric_scores, human_ratings)
+                    data_dict[file[:-4]] = f'{cor:.3f}'
+                                        
+    print(data_dict) 
+    all_values = []
+    for value in data_dict.values():
+        all_values.append(float(value))
+    average = sum(all_values) / 14
+    print(f'Average: {average:.3f}')  
     
     
 if __name__ == '__main__':
