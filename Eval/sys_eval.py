@@ -1,6 +1,7 @@
 import csv
 import os
 import pandas as pd
+from scipy.stats import pearsonr, spearmanr
 
 
 domains = ['newstest2021','tedtalks']
@@ -33,6 +34,7 @@ for domain in domains:
                             rating_scores.append(rating_score)
                             metric_scores.append(metric_score)
 
-                cor, p_value = pearsonr(metric_scores, rating_scores)
+                r, p_value = pearsonr(metric_scores, rating_scores)
+                p, p_value = spearmanr(metric_scores, rating_scores)
                 
-                print(f'{file_name[4:-4]}: {cor:.3f}')
+                print(f"{file_name[4:-4]}: Pearson's r - {r:.3f}, Spearman's - {p:.3f}")
