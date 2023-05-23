@@ -9,9 +9,9 @@ model = MarianMTModel.from_pretrained(model_name)
 for file in ['baby_k.tsv', 'a_beautiful_mind.tsv']:
 
     df = pd.read_csv(file, sep='\t')
-    sources = list(df['source'])
+    source = list(df['source'])
     
-    translated = model.generate(**tokenizer(sources, return_tensors="pt", padding=True))
+    translated = model.generate(**tokenizer(source, return_tensors="pt", padding=True))
 
     opus_mt_translations = []
     for sentence in translated:
