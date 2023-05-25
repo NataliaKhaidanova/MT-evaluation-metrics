@@ -36,5 +36,5 @@ for file in [r'Data/baby_k.tsv', r'Data/a_beautiful_mind.tsv']:
     seg_comet_qe_mqm_2021_data = pd.DataFrame(seg_data_dict)
     seg_comet_qe_mqm_2021_data.to_csv(f'Data/seg_COMET-QE-MQM_2021_{file[5:-4]}.tsv', sep='\t', index=False) 
     # save system level scores 
-    sys_comet_qe_mqm_2021_data = pd.DataFrame(sys_data_dict)
+    sys_comet_qe_mqm_2021_data = pd.DataFrame(sys_data_dict, index=[0])
     sys_comet_qe_mqm_2021_data.to_csv(f'Data/sys_COMET-QE-MQM_2021_{file[5:-4]}.tsv', sep='\t', index=False) 
