@@ -5,7 +5,6 @@ import os
 domains = ['newstest2021','tedtalks']
 metrics = ['sacre_BLEU','sacre_TER','sacre_CHRF2','BLEURT-20','COMET-MQM_2021','COMET-QE-MQM_2021']
 
-
 for domain in domains:
     for metric in metrics:
     
