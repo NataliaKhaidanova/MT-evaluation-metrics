@@ -7,7 +7,8 @@ comet_qe_mqm_2021_model = load_from_checkpoint(model_path)
 
 for file in [r'Data/baby_k.tsv', r'Data/a_beautiful_mind.tsv']:
     
-    data_dict, comet_qe_mqm_2021_human_scores, comet_qe_mqm_2021_opus_mt_scores = {}, [], []
+    seg_data_dict, sys_data_dict = {}, {}
+    comet_qe_mqm_2021_human_scores, comet_qe_mqm_2021_opus_mt_scores = {}, [], []
     
     df = pd.read_csv(file, sep='\t') 
     sources = list(df['source'])
@@ -26,9 +27,14 @@ for file in [r'Data/baby_k.tsv', r'Data/a_beautiful_mind.tsv']:
         comet_qe_mqm_2021_score = comet_qe_mqm_2021_model.predict(inputs, batch_size=8, gpus=1)
         comet_qe_mqm_2021_opus_mt_scores.append(f'{comet_qe_mqm_2021_score[0][0]:.3f}')
 
-
-    data_dict['human_scores'] = comet_qe_mqm_2021_human_scores    
-    data_dict['opus_mt_scores'] = comet_qe_mqm_2021_opus_mt_scores    
-
-    comet_qe_mqm_2021_data = pd.DataFrame(data_dict)
-    comet_qe_mqm_2021_data.to_csv(f'Data/{file[5:-4]}_COMET-QE-MQM_2021.tsv', sep='\t', index=False) 
+    seg_data_dict['human_scores'] = comet_qe_mqm_2021_human_scores    
+    seg_data_dict['opus_mt_scores'] = comet_qe_mqm_2021_opus_mt_scores   
+    
+    sys_data_dict['human_scores'] = sum(comet_qe_mqm_2021_human_scores) / len(comet_qe_mqm_2021_human_scores) 
+    sys_data_dict['opus_mt_scores'] = sum(comet_qe_mqm_2021_opus_mt_scores) / len(comet_qe_mqm_2021_opus_mt_scores) 
+    # save segment level scores
+    seg_comet_qe_mqm_2021_data = pd.DataFrame(seg_data_dict)
+    seg_comet_qe_mqm_2021_data.to_csv(f'Data/seg_COMET-QE-MQM_2021_{file[5:-4]}.tsv', sep='\t', index=False) 
+    # save system level scores 
+    sys_comet_qe_mqm_2021_data = pd.DataFrame(sys_data_dict)
+    sys_comet_qe_mqm_2021_data.to_csv(f'Data/sys_COMET-QE-MQM_2021_{file[5:-4]}.tsv', sep='\t', index=False) 
