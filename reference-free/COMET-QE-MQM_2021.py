@@ -30,7 +30,7 @@ for file in [r'Data/baby_k.tsv', r'Data/a_beautiful_mind.tsv']:
     seg_data_dict['human_scores'] = comet_qe_mqm_2021_human_scores    
     seg_data_dict['opus_mt_scores'] = comet_qe_mqm_2021_opus_mt_scores   
     
-    sys_data_dict['human_scores'] = str(sum([float(x) for x in comet_qe_mqm_2021_human_scores]) / len(comet_qe_mqm_2021_human_scores))
+    sys_data_dict['human_scores'] = f'{sum([float(x) for x in comet_qe_mqm_2021_human_scores]) / len(comet_qe_mqm_2021_human_scores):.3f}'
     sys_data_dict['opus_mt_scores'] = f'{sum([float(x) for x in comet_qe_mqm_2021_opus_mt_scores]) / len(comet_qe_mqm_2021_opus_mt_scores):.3f}'
     # save segment level scores
     seg_comet_qe_mqm_2021_data = pd.DataFrame(seg_data_dict)
