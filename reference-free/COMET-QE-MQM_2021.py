@@ -30,8 +30,8 @@ for file in [r'Data/baby_k.tsv', r'Data/a_beautiful_mind.tsv']:
     seg_data_dict['human_scores'] = comet_qe_mqm_2021_human_scores    
     seg_data_dict['opus_mt_scores'] = comet_qe_mqm_2021_opus_mt_scores   
     
-    sys_data_dict['human_scores'] = sum(comet_qe_mqm_2021_human_scores) / len(comet_qe_mqm_2021_human_scores) 
-    sys_data_dict['opus_mt_scores'] = sum(comet_qe_mqm_2021_opus_mt_scores) / len(comet_qe_mqm_2021_opus_mt_scores) 
+    sys_data_dict['human_scores'] = sum([float(x) for x in comet_qe_mqm_2021_human_scores]) / len(comet_qe_mqm_2021_human_scores) 
+    sys_data_dict['opus_mt_scores'] = sum([float(x) for x in comet_qe_mqm_2021_opus_mt_scores]) / len(comet_qe_mqm_2021_opus_mt_scores) 
     # save segment level scores
     seg_comet_qe_mqm_2021_data = pd.DataFrame(seg_data_dict)
     seg_comet_qe_mqm_2021_data.to_csv(f'Data/seg_COMET-QE-MQM_2021_{file[5:-4]}.tsv', sep='\t', index=False) 
