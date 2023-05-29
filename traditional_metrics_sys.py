@@ -43,7 +43,7 @@ for domain in ['newstest2021', 'tedtalks']:
                         news_data_dict[file_name[23:-3]] = sacre_ter.score
 
             news_data = pd.DataFrame(news_data_dict, index=[0])
-            news_data.to_csv(f'Data/newstest2021/sys/systems/new/sys_{metric}.tsv', sep='\t', index=False)
+            news_data.to_csv(f'Data/newstest2021/sys/sys_{metric}.tsv', sep='\t', index=False)
             
         if domain == 'tedtalks':
             ted_data_dict = {}
@@ -69,4 +69,4 @@ for domain in ['newstest2021', 'tedtalks']:
                         ted_data_dict[file_name[19:-3]] = sacre_ter.score
 
             ted_data = pd.DataFrame(ted_data_dict, index=[0])
-            ted_data.to_csv(f'Data/tedtalks/sys/systems/new/sys_{metric}.tsv', sep='\t', index=False)
+            ted_data.to_csv(f'Data/tedtalks/sys/sys_{metric}.tsv', sep='\t', index=False)
