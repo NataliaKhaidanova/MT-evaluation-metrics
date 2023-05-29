@@ -48,8 +48,8 @@ for domain in ['newstest2021', 'tedtalks']:
         if domain == 'tedtalks':
             ted_data_dict = {}
             sacre_references = []
-            for references in ted_references:
-                sacre_references.append([' '.join(x) for x in references])
+            for reference in ted_references:
+                sacre_references.append([reference])
 
             for file_name in os.listdir(ted_candidates):
                 if file_name[19:-3] not in ['ref-A']:
