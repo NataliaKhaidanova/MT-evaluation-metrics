@@ -6,12 +6,12 @@ from scipy.stats import kendalltau
 def compute_seg_correlation(domain, metric, human_judgment):
     """
     Compute segment-level Kendall's tau for 
-    SacreBLEU, SacreCHRF2, SacreTER, BLEURT-20, COMET-MQM_2021, COMET-QE-MQM_2021.
+    SacreBLEU, TER, CHRF2, BLEURT-20, COMET-MQM_2021, COMET-QE-MQM_2021.
     Get the correlation for both newstest2021 and tedtalks datasets. 
     
     :param sting domain: domain to compute the correlation for ('newstest2021' or 'tedtalks')
     :param sting metric: the metric to compute the correlation for 
-    ('sacre_BLEU', 'sacre_TER', 'sacre_CHRF2', 'BLEURT-20', 'COMET-MQM_2021', 'COMET-QE-MQM_2021')
+    ('sacre_BLEU', 'TER', 'CHRF2', 'BLEURT-20', 'COMET-MQM_2021', 'COMET-QE-MQM_2021')
     :param sting human_judgment: human judgment type ('mqm', 'raw', 'z') 
     :return: None
     """
@@ -19,7 +19,7 @@ def compute_seg_correlation(domain, metric, human_judgment):
     
     data_dict = {}
     
-    if metric not in ['sacre_BLEU', 'sacre_CHRF2', 'sacre_TER']:
+    if metric not in ['sacre_BLEU', 'CHRF2', 'TER']:
         for file in os.listdir(path):
             if file.endswith('.tsv'):
 
@@ -162,7 +162,7 @@ def compute_seg_correlation(domain, metric, human_judgment):
     
 if __name__ == '__main__':
 
-    metrics = ['sacre_BLEU', 'sacre_TER', 'sacre_CHRF2', 'BLEURT-20', 'COMET-MQM_2021', 'COMET-QE-MQM_2021']
+    metrics = ['sacre_BLEU', 'TER', 'CHRF2', 'BLEURT-20', 'COMET-MQM_2021', 'COMET-QE-MQM_2021']
     
     print("Segment-level Kendall's tau correlation with MQM scores")
     print('newstest2021:')
