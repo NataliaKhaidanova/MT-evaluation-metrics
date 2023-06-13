@@ -14,7 +14,7 @@ ted_data = pd.read_csv('Data/all_TED_data.tsv', sep='\t')
 ted_candidates = 'WMT21-data/system-outputs/tedtalks/en-ru'
 ted_references = list(ted_data['TED_ref'])
 
-bleu = BLEU()
+bleu = BLEU(tokenize = 'char')
 ter = TER()
 chrf2 = CHRF()
 
