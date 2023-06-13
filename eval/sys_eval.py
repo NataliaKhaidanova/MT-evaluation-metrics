@@ -7,7 +7,7 @@ from scipy.stats import pearsonr, spearmanr
 def compute_sys_correlation(domain, human_judgment):
     """
     Compute system-level Pearson's r and Spearman's p for 
-    SacreBLEU, SacreCHRF2, SacreTER, BLEURT-20, COMET-MQM_2021, COMET-QE-MQM_2021.
+    SacreBLEU, CHRF2, TER, BLEURT-20, COMET-MQM_2021, COMET-QE-MQM_2021.
     Get the correlation for both newstest2021 and tedtalks datasets. 
     
     :param sting domain: domain to compute the correlation for ('newstest2021' or 'tedtalks')
