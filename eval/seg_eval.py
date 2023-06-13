@@ -19,7 +19,7 @@ def compute_seg_correlation(domain, metric, human_judgment):
     
     data_dict = {}
     
-    if metric not in ['sacre_BLEU', 'CHRF2', 'TER']:
+    if metric not in ['sacre_BLEU', 'TER', 'CHRF2']:
         for file in os.listdir(path):
             if file.endswith('.tsv'):
 
