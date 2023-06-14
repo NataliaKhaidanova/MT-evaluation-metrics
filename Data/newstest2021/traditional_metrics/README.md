@@ -2,20 +2,20 @@ Traditional metrics scores for the newstest2021 data (langauge pair: en-ru)(WMT-
 
 Runtime on CPU (local):
 
-- all files BLEU: 17.31 seconds
+- all files SacreBLEU: 218.35 seconds (3 minutes, 38 seconds)
+- all files TER: TER: 1485.88 seconds (24 minutes, 46 seconds)
 - all files CHRF2: 41.13 seconds
-- all files TER: TER: 394.37 seconds (6 minutes, 34 seconds) 
 
 Runtime on CPU (via GoogleColab):
 
-- all files BLEU: 9.60 seconds
-- all files CHRF2: 16.08 seconds
-- all files TER: 158.12 seconds (2 minutes, 38 seconds) 
+- all files SacreBLEU: 67.84 seconds (1 minute, 8 seconds)
+- all files TER: 328.33 seconds (5 minutes, 28 seconds)
+- all files CHRF2: 1931.40 seconds (32 minutes, 11 seconds)
 
 Runtime on GPU (via GoogleColab, standard):
 
-- all files BLEU: 7.16 seconds
-- all files CHRF2: 13.68 seconds
+- all files SacreBLEU: 7.16 seconds
 - all files TER: 124.71 seconds (2 minutes, 5 seconds) 
+- all files CHRF2: 13.68 seconds
 
 The time varies with each run.
