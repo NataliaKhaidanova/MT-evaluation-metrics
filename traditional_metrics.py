@@ -1,8 +1,6 @@
 import pandas as pd
 import os
 from torchmetrics import SacreBLEUScore, TranslationEditRate, CHRFScore
-from google.colab import drive
-drive.mount('/content/drive')
 
 
 news_data = pd.read_csv(r'Data/all_news_data.tsv', sep='\t') 
