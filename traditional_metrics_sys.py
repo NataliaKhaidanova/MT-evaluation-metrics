@@ -67,7 +67,7 @@ for domain in ['newstest2021', 'tedtalks']:
                         ter_score = ter(candidates, sacre_references)
                         ted_data_dict[file_name[19:-3]] = ter_score.item()
 
-                    if metric == 'sacre_CHRF2':
+                    if metric == 'CHRF2':
                         chrf2_score = chrf2(candidates, sacre_references)
                         ted_data_dict[file_name[19:-3]] = chrf2_score.item()
 
