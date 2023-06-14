@@ -2,9 +2,9 @@ Traditional metrics scores for the tedtalks data (langauge pair: en-ru)(WMT-21 M
 
 Runtime on CPU (local):
 
-- all files SacreBLEU: 17.35 seconds
-- all files TER: 165.29 seconds (2 minutes, 45 seconds) 
-- all files CHRF2: 161.29 seconds (2 minutes, 31 seconds) 
+- all files SacreBLEU: 55.43 seconds
+- all files TER: 126.05 seconds (2 minutes, 6 seconds)
+- all files CHRF2: 929.23 seconds (15 minutes, 29 seconds)
 
 Runtime on CPU (via GoogleColab):
 
