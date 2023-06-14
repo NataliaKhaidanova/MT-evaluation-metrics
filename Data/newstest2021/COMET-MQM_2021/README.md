@@ -20,8 +20,6 @@ one file ca. 5,960.85 seconds (99.35 minutes); all files ca. 83,451.90 seconds (
 
 Runtime on GPU (via GoogleColab, standard):
 
-- ref-B 2,514.65 seconds
-
 one file ca. 5,041.06 seconds (84.02 minutes); all files ca. 70,574.84 seconds (1,176.25 minutes, 19 hours 36 minutes)
 
 - Facebook-AI 4,957.06 seconds
