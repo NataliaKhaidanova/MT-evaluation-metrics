@@ -14,8 +14,8 @@ Runtime on CPU (via GoogleColab):
 
 Runtime on GPU (via GoogleColab, standard):
 
-- all files SacreBLEU: 7.16 seconds
-- all files TER: 124.71 seconds (2 minutes, 5 seconds) 
-- all files CHRF2: 13.68 seconds
+- all files SacreBLEU: 67.61 seconds (1 minute, 8 seconds)
+- all files TER: 317.29 seconds (5 minutes, 17 seconds) 
+- all files CHRF2: 1636.99 seconds (27 minutes, 17 seconds)
 
 The time varies with each run.
