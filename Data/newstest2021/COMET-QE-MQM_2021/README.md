@@ -20,10 +20,4 @@ one file ca. 2,224.78 seconds (37.08 minutes); all files ca. 31,146.92 seconds (
 
 Runtime on GPU (via GoogleColab, standard):
 
-one file ca. ???
-
-- Facebook-AI 2,372.35 seconds
-- Manifold 2,495.77 seconds
-- Nemo 2,394.55 seconds
-
 The time varies with each run.
