@@ -18,11 +18,11 @@ def read_file(file_path):
 news_source = r'Data/WMT21-data/sources/newstest2021.en-ru.src.en'
 news_reference_A = r'Data/WMT21-data/references/newstest2021.en-ru.ref.ref-A.ru'
 news_reference_B = r'Data/WMT21-data/references/newstest2021.en-ru.ref.ref-B.ru'
-news_candidates = r'Data/WMT21-data/system-outputs/newstest2021/en-ru'
+news_candidates = r'Data/WMT21-data/system-outputs/newstest2021'
 
 ted_source = r'Data/WMT21-data/sources/tedtalks.en-ru.src.en'
 ted_reference = r'Data/WMT21-data/references/tedtalks.en-ru.ref.ref-A.ru'
-ted_candidates = r'Data/WMT21-data/system-outputs/tedtalks/en-ru'
+ted_candidates = r'Data/WMT21-data/system-outputs/tedtalks'
 
 
 news_source = read_file(news_source)
