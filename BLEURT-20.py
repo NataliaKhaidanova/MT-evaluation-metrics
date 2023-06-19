@@ -5,8 +5,8 @@ from bleurt_pytorch import BleurtConfig, BleurtForSequenceClassification, Bleurt
 import time
 
 
-news_data = pd.read_csv(r'all_news_data.tsv', sep='\t') 
-news_candidates = r'WMT21-data/system-outputs/newstest2021/en-ru'
+news_data = pd.read_csv(r'Data/all_news_data.tsv', sep='\t') 
+news_candidates = r'Data/WMT21-data/system-outputs/newstest2021'
 news_references_A = list(news_data['news_ref_A'])
 news_references_B = list(news_data['news_ref_B'])
 
@@ -14,8 +14,8 @@ all_news_references = []
 for A, B in zip(news_references_A, news_references_B):
     all_news_references.append([A.split(), B.split()])
     
-ted_data = pd.read_csv(r'all_TED_data.tsv', sep='\t') 
-ted_candidates = r'WMT21-data/system-outputs/tedtalks/en-ru'
+ted_data = pd.read_csv(r'Data/all_TED_data.tsv', sep='\t') 
+ted_candidates = r'Data/WMT21-data/system-outputs/tedtalks'
 ted_references = list(ted_data['TED_ref'])
 
 bleurt_20_config = BleurtConfig.from_pretrained('lucadiliello/BLEURT-20')
@@ -68,7 +68,7 @@ for file_name in os.listdir(news_candidates):
         print('==================')
 
         news_bleurt_20_data = pd.DataFrame(data_dict)
-        news_bleurt_20_data.to_csv(f'Data/newstest2021/{file_name[23:-3]}_BLEURT-20.tsv', sep='\t', index=False) 
+        news_bleurt_20_data.to_csv(f'Data/newstest2021/BLEURT-20/{file_name[23:-3]}_BLEURT-20.tsv', sep='\t', index=False) 
 
         
 for file_name in os.listdir(ted_candidates):
@@ -104,5 +104,5 @@ for file_name in os.listdir(ted_candidates):
         print('==================')
 
         ted_bleurt_20_data = pd.DataFrame(data_dict)
-        ted_bleurt_20_data.to_csv(f'Data/tedtalks/{file_name[19:-3]}_BLEURT-20.tsv', sep='\t', index=False) 
+        ted_bleurt_20_data.to_csv(f'Data/tedtalks/BLEURT-20/{file_name[19:-3]}_BLEURT-20.tsv', sep='\t', index=False) 
             
