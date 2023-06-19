@@ -1,6 +1,5 @@
 import pandas as pd
 import os 
-from scipy.stats import pearsonr, spearmanr, kendalltau
 
 
 def get_nr_annotations(domain, human_judgment):
@@ -8,7 +7,7 @@ def get_nr_annotations(domain, human_judgment):
     Get number of annotated segments per domain and human judgment type.
     
     :param sting domain: 'newstest2021' or 'tedtalks'
-    :param sting human_judgment: human judgment type ('mqm', 'raw', 'z') 
+    :param sting human_judgment: human judgment type ('mqm', 'raw_da', 'z_da') 
     :return: None
     """
     path = f'../Data/{domain}/traditional_metrics'
@@ -57,8 +56,8 @@ if __name__ == '__main__':
     print('------------------')
     print()
     print('Number of raw DA annotated segments for newstest2021:')
-    get_nr_annotations('newstest2021', 'raw')
+    get_nr_annotations('newstest2021', 'raw_da')
     print('------------------')
     print()
     print('Number of z-normalized DA annotated segments for newstest2021:')
-    get_nr_annotations('newstest2021', 'z')
+    get_nr_annotations('newstest2021', 'z_da')
