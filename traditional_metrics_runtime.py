@@ -25,7 +25,7 @@ chrf2 = CHRFScore()
 def get_traditional_metrics_time(data, candidates, all_references, metric):
     """
     Get metric's scores for all candidates and systems in the system-outputs folder,
-    get the time needed to produce these scores.
+    get the time needed to produce these scores. N.B.! The scores won't be saved. 
 
     :param pandas.core.frame.DataFrame data: pandas dataframe of either all_news_data.tsv or all_TED_data.tsv
     :param str candidates: path to the folder with system outputs
