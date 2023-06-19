@@ -10,10 +10,10 @@ The thesis project focuses on replicating and reproducing selected research cond
 
 The [data](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/tree/main/Data) folder contains the following subfolders:
 
-- [WMT21-data](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/tree/main/Data/WMT21-data): stores source sentences ([sources](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/tree/main/Data/WMT21-data/sources)), reference translations ([references](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/tree/main/Data/WMT21-data/references)), machine translations ([system-outputs](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/tree/main/Data/WMT21-data/system-outputs)), and human judgment scores ([evaluation](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/tree/main/Data/WMT21-data/evaluation)) for each domain, i.e., news (newstest2021) or TED talks (tedtalks). 
+1) [WMT21-data](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/tree/main/Data/WMT21-data): stores source sentences ([sources](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/tree/main/Data/WMT21-data/sources)), reference translations ([references](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/tree/main/Data/WMT21-data/references)), machine translations ([system-outputs](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/tree/main/Data/WMT21-data/system-outputs)), and human judgment scores ([evaluation](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/tree/main/Data/WMT21-data/evaluation)) for each domain, i.e., news (newstest2021) or TED talks (tedtalks). 
 
-- [newstest2021](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/tree/main/Data/newstest2021) contains: 
-segment-level scores for each implemented neural metric (BLEURT-20, COMET-MQM_2021, and COMET-QE-MQM_2021)  for the news domain
-segment-level scores for all utilized traditional metrics (traditional metrics)  for the news domain. 
-system-level scores for each metric for the news domain.  
+2) [newstest2021](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/tree/main/Data/newstest2021) contains: 
+- segment-level scores for each implemented neural metric (BLEURT-20, COMET-MQM_2021, and COMET-QE-MQM_2021)  for the news domain
+- segment-level scores for all utilized traditional metrics (traditional metrics)  for the news domain. 
+- system-level scores for each metric for the news domain.  
 
