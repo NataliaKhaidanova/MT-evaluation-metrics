@@ -4,7 +4,7 @@ from torchmetrics import SacreBLEUScore, TranslationEditRate, CHRFScore
 
 
 news_data = pd.read_csv(r'Data/all_news_data.tsv', sep='\t') 
-news_candidates = r'Data/WMT21-data/system-outputs/newstest2021/en-ru'
+news_candidates = 'Data/WMT21-data/system-outputs/newstest2021'
 news_references_A = list(news_data['news_ref_A'])
 news_references_B = list(news_data['news_ref_B'])
 
@@ -13,7 +13,7 @@ for A, B in zip(news_references_A, news_references_B):
     all_news_references.append([A.split(), B.split()])
     
 ted_data = pd.read_csv(r'Data/all_TED_data.tsv', sep='\t') 
-ted_candidates = r'Data/WMT21-data/system-outputs/tedtalks/en-ru'
+ted_candidates = 'Data/WMT21-data/system-outputs/tedtalks'
 ted_references = list(ted_data['TED_ref'])
 
 sacre_bleu = SacreBLEUScore()
@@ -86,9 +86,9 @@ for file_name in os.listdir(ted_candidates):
 for file_name, data_dict in zip(os.listdir(news_candidates), news_scores):
     
     news_data = pd.DataFrame(data_dict)
-    news_data.to_csv(f'Data/newstest2021/{file_name[23:-3]}.tsv', sep='\t', index=False) 
+    news_data.to_csv(f'Data/newstest2021/traditional_metrics/{file_name[23:-3]}.tsv', sep='\t', index=False) 
 
 for file_name, data_dict in zip(os.listdir(ted_candidates), ted_scores):
     
     ted_data = pd.DataFrame(data_dict)
-    ted_data.to_csv(f'Data/tedtalks/{file_name[19:-3]}.tsv', sep='\t', index=False)  
+    ted_data.to_csv(f'Data/tedtalks/traditional_metrics/{file_name[19:-3]}.tsv', sep='\t', index=False) 
