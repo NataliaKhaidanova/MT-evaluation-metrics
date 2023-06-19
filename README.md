@@ -7,7 +7,7 @@ The thesis project focuses on replicating and reproducing selected research cond
 <h2>Content</h2>
 
 <pre>
-```plaintext
+plaintext
 repository
 ├── folder1
 │   ├── file1.txt
@@ -19,6 +19,5 @@ repository
 │   ├── file5.txt
 │   └── file6.txt
 └── file7.txt
-```
 </pre>
 
