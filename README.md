@@ -30,7 +30,7 @@ The [eval](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/tree/main/
 
 <h3>Files:</h3>
 
-- get_nr_annotations.py checks the number of annotated segments per type of human judgment. 
+- get_nr_annotations.py checks the number of annotated segments per type of human judgment (MQM, raw DA, or z-normalized DA). 
 
 - seg_eval.py runs a segment-level evaluation of the implemented neural and traditional metrics. 
 
