@@ -1,137 +1,144 @@
 import pandas as pd
-import os 
+import os
+from torchmetrics import SacreBLEUScore, TranslationEditRate, CHRFScore
 import time
-import sacrebleu
 
 
-news_data = pd.read_csv(r'all_news_data.tsv', sep='\t') 
-news_candidates = r'WMT21-data/system-outputs/newstest2021/en-ru'
+news_data = pd.read_csv(r'Data/all_news_data.tsv', sep='\t') 
+news_candidates = r'Data/WMT21-data/system-outputs/newstest2021'
 news_references_A = list(news_data['news_ref_A'])
 news_references_B = list(news_data['news_ref_B'])
 
 all_news_references = []
 for A, B in zip(news_references_A, news_references_B):
     all_news_references.append([A.split(), B.split()])
-    
-ted_data = pd.read_csv(r'all_TED_data.tsv', sep='\t') 
-ted_candidates = r'WMT21-data/system-outputs/tedtalks/en-ru'
+
+ted_data = pd.read_csv(r'Data/all_TED_data.tsv', sep='\t') 
+ted_candidates = r'Data/WMT21-data/system-outputs/tedtalks'
 ted_references = list(ted_data['TED_ref'])
 
+sacre_bleu = SacreBLEUScore()
+ter = TranslationEditRate()
+chrf2 = CHRFScore()
 
-def get_traditional_metrics_time(data, candidates, references, metric):
+
+def get_traditional_metrics_time(data, candidates, all_references, metric):
     """
-    Get metric's scores for all candidates and systems in the systems-output folder,
-    get the time needed to produce these scores. 
-    
+    Get metric's scores for all candidates and systems in the system-outputs folder,
+    get the time needed to produce these scores.
+
     :param pandas.core.frame.DataFrame data: pandas dataframe of either all_news_data.tsv or all_TED_data.tsv
-    :param str candidates: path to the folder with system outputs 
-    :param list references: list (of lists) of reference translations 
-    :param str metric: metric's name (BLEU, CHRF2, or TER)  
+    :param str candidates: path to the folder with system outputs
+    :param list all_references: list (of lists) of reference translations
+    :param str metric: metric's name (sacre_BLEU, TER, or CHRF2)
     :return: None
     """
     start_time = time.time()
     all_scores = []
     count = 0
-    
+
     for file_name in os.listdir(candidates):
         # get the scores for the newstest2021 data
         if 'newstest2021' in candidates and file_name[23:-3] not in ['ref-A','ref-B','']:
-            
+
             count += 1
             data_dict, scores = {}, []
             file_candidates = list(data[file_name[23:-3]])
-            
-            for reference, candidate in zip(references, file_candidates):
-                
-                if metric == 'BLEU':
+
+            for references, candidate in zip(all_references, file_candidates):
+
+                torchmetrics_references = [' '.join(x) for x in references]
+
+                if metric == 'sacre_BLEU':
                     try:
-                        reference = [' '.join(x) for x in reference]  
-                        bleu = sacrebleu.sentence_bleu(candidate, reference)
-                        scores.append(f'{bleu.score:.2f}')
-                    
-                    except TypeError:
+                        sacre_bleu_score = sacre_bleu([candidate], [torchmetrics_references])
+                        sacre_bleu_score = sacre_bleu_score.item()
+                        scores.append(f'{sacre_bleu_score:.2f}')
+
+                    except Exception:
                         scores.append('0.00')
-                        
-                if metric == 'CHRF2':
-                    try:
-                        reference = [' '.join(x) for x in reference]  
-                        chrf = sacrebleu.sentence_chrf(candidate, reference)
-                        scores.append(f'{chrf.score:.2f}')
-                    
-                    except TypeError:
-                        scores.append('0.00')
-                        
+
                 if metric == 'TER':
                     try:
-                        reference = [' '.join(x) for x in reference]  
-                        ter = sacrebleu.sentence_ter(candidate, reference)
-                        scores.append(f'{ter.score:.2f}')
-                    
-                    except TypeError:
-                        scores.append('0.00')               
-                        
-            data_dict[metric] = scores 
+                        ter_score = ter([candidate], [torchmetrics_references])
+                        ter_score = ter_score.item()
+                        scores.append(f'{ter_score:.2f}')
+
+                    except Exception:
+                        scores.append('0.00')
+
+                if metric == 'CHRF2':
+                    try:
+                        chrf2_score = chrf2([candidate], [torchmetrics_references])
+                        chrf2_score = chrf2_score.item()
+                        scores.append(f'{chrf2_score:.2f}')
+
+                    except Exception:
+                        scores.append('0.00')
+
+            data_dict[metric] = scores
             all_scores.append(data_dict)
-            
+
             if count == 3:
-                print('three files are processed')    
+                print('three files are processed')
             if count == 7:
                 print('half of the files is processed')
             if count == 11:
                 print('almost done')
-            
-        # get the scores for the tedtalks data    
+
+        # get the scores for the tedtalks data
         if 'tedtalks' in candidates and file_name[19:-3] not in ['ref-A','']:
-            
+
             count += 1
             data_dict, scores = {}, []
             file_candidates = list(data[file_name[19:-3]])
-            
-            for reference, candidate in zip(references, file_candidates):
-                
-                reference = [' '.join(x) for x in reference]  
-                
-                if metric == 'BLEU':
-                    bleu = sacrebleu.sentence_bleu(candidate, reference)
-                    scores.append(f'{bleu.score:.2f}')
-            
-                if metric == 'CHRF2':
-                    chrf = sacrebleu.sentence_chrf(candidate, reference)
-                    scores.append(f'{chrf.score:.2f}')
-                        
+
+            for reference, candidate in zip(all_references, file_candidates):
+
+                if metric == 'sacre_BLEU':
+                    sacre_bleu_score = sacre_bleu([candidate], [[reference]])
+                    sacre_bleu_score = sacre_bleu_score.item()
+                    scores.append(f'{sacre_bleu_score:.2f}')
+
                 if metric == 'TER':
-                    ter = sacrebleu.sentence_ter(candidate, reference)
-                    scores.append(f'{ter.score:.2f}')
-                        
-            data_dict[metric] = scores 
+                    ter_score = ter([candidate], [[reference]])
+                    ter_score = ter_score.item()
+                    scores.append(f'{ter_score:.2f}')
+
+                if metric == 'CHRF2':
+                    chrf2_score = chrf2([candidate], [[reference]])
+                    chrf2_score = chrf2_score.item()
+                    scores.append(f'{chrf2_score:.2f}')
+
+            data_dict[metric] = scores
             all_scores.append(data_dict)
-            
+
             if count == 3:
-                print('three files are processed')    
+                print('three files are processed')
             if count == 7:
                 print('half of the files is processed')
             if count == 11:
                 print('almost done')
-            
+
     end_time = time.time()
     total_time = end_time - start_time
     print('Time taken', f'for {metric}:', f'{total_time:.2f}', 'seconds')
-    
-    
+
+
 if __name__ == '__main__':
     print('newstest2021 data:')
     print('==================')
-    get_traditional_metrics_time(news_data, news_candidates, all_news_references, 'BLEU')
-    print('------------------')
-    get_traditional_metrics_time(news_data, news_candidates, all_news_references, 'CHRF2')
+    get_traditional_metrics_time(news_data, news_candidates, all_news_references, 'sacre_BLEU')
     print('------------------')
     get_traditional_metrics_time(news_data, news_candidates, all_news_references, 'TER')
     print('------------------')
+    get_traditional_metrics_time(news_data, news_candidates, all_news_references, 'CHRF2')
+    print('------------------')
     print('tedtalks data:')
     print('==================')
-    get_traditional_metrics_time(ted_data, ted_candidates, ted_references, 'BLEU')
-    print('------------------')
-    get_traditional_metrics_time(ted_data, ted_candidates, ted_references, 'CHRF2')
+    get_traditional_metrics_time(ted_data, ted_candidates, ted_references, 'sacre_BLEU')
     print('------------------')
     get_traditional_metrics_time(ted_data, ted_candidates, ted_references, 'TER')
+    print('------------------')
+    get_traditional_metrics_time(ted_data, ted_candidates, ted_references, 'CHRF2')
     print('------------------')
