@@ -1,37 +1,37 @@
-#import yaml
-#from comet.models.regression.referenceless import ReferencelessRegression
-#from comet.models.regression.regression_metric import RegressionMetric
-#from comet.models.ranking.ranking_metric import RankingMetric
-#from comet.models.multitask.unified_metric import UnifiedMetric
+import yaml
+from comet.models.regression.referenceless import ReferencelessRegression
+from comet.models.regression.regression_metric import RegressionMetric
+from comet.models.ranking.ranking_metric import RankingMetric
+from comet.models.multitask.unified_metric import UnifiedMetric
 import pandas as pd
 import os
 from comet import download_model, load_from_checkpoint
 import time
 
 
-#def load_comet_model(checkpoint_path, hparams_path):
-    #"""
+def load_comet_model(checkpoint_path, hparams_path):
+    """
     #Load wmt21-comet-mqm model.
     
     #:param str checkpoint_path: path to the model.ckpt file 
     #:param str hparams_path: path to the hparams.yaml file 
     #:return: wmt21-comet-mqm model
     #"""   
-    #str2model = {'referenceless_regression_metric': ReferencelessRegression,
-                 #'regression_metric': RegressionMetric,
-                 #'ranking_metric': RankingMetric,
-                 #'unified_metric': UnifiedMetric}
+    str2model = {'referenceless_regression_metric': ReferencelessRegression,
+                 'regression_metric': RegressionMetric,
+                 'ranking_metric': RankingMetric,
+                 'unified_metric': UnifiedMetric}
 
-    #with open(hparams_path) as yaml_file:
-        #hparams = yaml.load(yaml_file.read(), Loader=yaml.FullLoader)
-    #model_class = str2model[hparams['class_identifier']]
-    #model = model_class.load_from_checkpoint(checkpoint_path, load_pretrained_weights=False)
+    with open(hparams_path) as yaml_file:
+        hparams = yaml.load(yaml_file.read(), Loader=yaml.FullLoader)
+    model_class = str2model[hparams['class_identifier']]
+    model = model_class.load_from_checkpoint(checkpoint_path, load_pretrained_weights=False)
 
-    #return model
+    return model
     
     
-news_data = pd.read_csv(r'all_news_data.tsv', sep='\t') 
-news_candidates = r'WMT21-data/system-outputs/newstest2021/en-ru'
+news_data = pd.read_csv(r'Data/all_news_data.tsv', sep='\t') 
+news_candidates = r'Data/WMT21-data/system-outputs/newstest2021'
 news_source = list(news_data['news_source'])
 news_references_A = list(news_data['news_ref_A'])
 news_references_B = list(news_data['news_ref_B'])
@@ -40,17 +40,18 @@ all_news_references = []
 for A, B in zip(news_references_A, news_references_B):
     all_news_references.append([A.split(), B.split()])
     
-ted_data = pd.read_csv(r'all_TED_data.tsv', sep='\t') 
-ted_candidates = r'WMT21-data/system-outputs/tedtalks/en-ru'
+ted_data = pd.read_csv(r'Data/all_TED_data.tsv', sep='\t') 
+ted_candidates = r'Data/WMT21-data/system-outputs/tedtalks'
 ted_source = list(ted_data['TED_source'])
 ted_references = list(ted_data['TED_ref'])
 
-#checkpoint_path = r'wmt21-comet-mqm/checkpoints/model.ckpt'
-#hparams_path = r'wmt21-comet-mqm/hparams.yaml'
-#comet_mqm_2021_model = load_comet_model(checkpoint_path, hparams_path) 
-
-model_path = download_model('NataliaKhaidanova/wmt21-comet-mqm')
-comet_mqm_2021_model = load_from_checkpoint(model_path)
+try:
+    model_path = download_model('NataliaKhaidanova/wmt21-comet-mqm')
+    comet_mqm_2021_model = load_from_checkpoint(model_path)
+except Exception:
+    checkpoint_path = r'wmt21-comet-mqm/checkpoints/model.ckpt' # set your model's path 
+    hparams_path = r'wmt21-comet-mqm/hparams.yaml' # set your hyperparameters' path 
+    comet_mqm_2021_model = load_comet_model(checkpoint_path, hparams_path) 
 
 
 for file_name in os.listdir(news_candidates):
@@ -104,7 +105,7 @@ for file_name in os.listdir(news_candidates):
         print('==================')
           
         news_comet_mqm_2021_data = pd.DataFrame(data_dict)
-        news_comet_mqm_2021_data.to_csv(f'Data/newstest2021/{file_name[23:-3]}_COMET-MQM_2021.tsv', sep='\t', index=False) 
+        news_comet_mqm_2021_data.to_csv(f'Data/newstest2021/COMET-MQM_2021/{file_name[23:-3]}_COMET-MQM_2021.tsv', sep='\t', index=False) 
         
         
 for file_name in os.listdir(ted_candidates):
@@ -147,4 +148,4 @@ for file_name in os.listdir(ted_candidates):
         print('==================')
           
         ted_comet_mqm_2021_data = pd.DataFrame(data_dict)
-        ted_comet_mqm_2021_data.to_csv(f'Data/tedtalks/{file_name[19:-3]}_COMET-MQM_2021.tsv', sep='\t', index=False) 
+        ted_comet_mqm_2021_data.to_csv(f'Data/tedtalks/COMET-MQM_2021/{file_name[19:-3]}_COMET-MQM_2021.tsv', sep='\t', index=False) 
