@@ -24,3 +24,22 @@ The [data](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/tree/main/
 
 - [tedtalks](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/tree/main/Data/tedtalks) contains segment-level scores for each implemented neural metric ([BLEURT-20](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/tree/main/Data/tedtalks/BLEURT-20), [COMET-MQM_2021](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/tree/main/Data/tedtalks/COMET-MQM_2021), and [COMET-QE-MQM_2021](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/tree/main/Data/tedtalks/COMET-QE-MQM_2021)) and all utilized traditional metrics ([traditional metrics](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/tree/main/Data/tedtalks/traditional_metrics)), as well as [system-level scores](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/tree/main/Data/tedtalks/sys) for each of these metrics. Domain: TED talks. 
 
+<h2>\eval</h2>
+
+The [eval](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/tree/main/eval) folder contains: 
+
+<h3>Files:</h3>
+
+- get_nr_annotations.py checks the number of annotated segments per type of human judgment. 
+
+- seg_eval.py runs a segment-level evaluation of the implemented neural and traditional metrics. 
+
+- sys_eval.py runs a system-level evaluation of the implemented neural and traditional metrics. 
+
+<h3>Subfolders:</h3>
+
+- [human_judgments_seg](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/tree/main/eval/human_judgments_seg) stores segment-level human judgment scores of each type (MQM, raw DA, or z-normalized DA). Domain: both news and TED talks. 
+
+- [human_judgments_sys](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/tree/main/eval/human_judgments_sys) contains system-level human judgment scores of each type (MQM, raw DA, or z-normalized DA). Domain: both news and TED talks. 
+
+
