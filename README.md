@@ -6,44 +6,9 @@ The thesis project focuses on replicating and reproducing selected research cond
 
 <h2>Content</h2>
 
-<pre>
-├── Data
-│   ├── WMT21-data
-│       ├── evaluation
-│           ├── newstest2021
-│               ├── en-ru.mqm.seg.score
-│               ├── en-ru.mqm.sys.score
-│               ├── en-ru.wmt-raw.seg.score
-│               ├── en-ru.wmt-raw.sys.score
-│               ├── en-ru.wmt-z.seg.score
-│               └── en-ru.wmt-z.sys.score
-│           └── tedtalks 
-│               ├── en-ru.mqm.seg.score
-│               └── en-ru.mqm.sys.score
-│      ├── references 
-│          ├── newstest2021.en-ru.ref.ref-A.ru
-│          ├── newstest2021.en-ru.ref.ref-B.ru
-│          └── tedtalks.en-ru.ref.ref-A.ru
-│      ├── sources
-│          ├── newstest2021.en-ru.src.en
-│          └── tedtalks.en-ru.src.en
-│      └── system-outputs 
-│          ├── newstest2021
-│              ├── newstest2021.en-ru.hyp.Facebook-AI.ru
-│              ├── newstest2021.en-ru.hyp.Manifold.ru
-│              ├── newstest2021.en-ru.hyp.Nemo.ru
-│              ├── newstest2021.en-ru.hyp.NiuTrans.ru
-│              ├── newstest2021.en-ru.hyp.Online-A.ru
-│              ├── newstest2021.en-ru.hyp.Online-B.ru
-│              ├── newstest2021.en-ru.hyp.Online-G.ru
-│              ├── newstest2021.en-ru.hyp.Online-W.ru
-│              ├── newstest2021.en-ru.hyp.Online-Y.ru
-│              ├── newstest2021.en-ru.hyp.metricsystem1.ru
-│              ├── newstest2021.en-ru.hyp.metricsystem2.ru
-│              ├── newstest2021.en-ru.hyp.metricsystem3.ru
-│              ├── newstest2021.en-ru.hyp.metricsystem4.ru
-│              ├── newstest2021.en-ru.hyp.metricsystem5.ru
-│              ├── newstest2021.en-ru.ref.ref-A.ru
-│              └── newstest2021.en-ru.ref.ref-B.ru
-</pre>
+<h2>\Data</h2>
+
+The [data](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/tree/main/Data) folder contains the following subfolders:
+
+- [WMT21-data](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/tree/main/Data/WMT21-data): stores source sentences ([sources](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/tree/main/Data/WMT21-data/sources)), reference translations ([references](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/tree/main/Data/WMT21-data/references)), machine translations ([system-outputs](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/tree/main/Data/WMT21-data/system-outputs)), and human judgment scores ([evaluation](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/tree/main/Data/WMT21-data/evaluation)) for each domain (news (newstest2021) or TED talks (tedtalks)). 
 
