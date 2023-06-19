@@ -12,7 +12,7 @@ def compute_seg_correlation(domain, metric, human_judgment):
     :param sting domain: domain to compute the correlation for ('newstest2021' or 'tedtalks')
     :param sting metric: the metric to compute the correlation for 
     ('sacre_BLEU', 'TER', 'CHRF2', 'BLEURT-20', 'COMET-MQM_2021', 'COMET-QE-MQM_2021')
-    :param sting human_judgment: human judgment type ('mqm', 'raw', 'z') 
+    :param sting human_judgment: human judgment type ('mqm', 'raw_da', 'z_da') 
     :return: None
     """
     path = f'../Data/{domain}/{metric}'
@@ -186,7 +186,7 @@ if __name__ == '__main__':
     print('==================')
     for metric in metrics:
         print(metric)
-        compute_seg_correlation('newstest2021', metric, 'raw')
+        compute_seg_correlation('newstest2021', metric, 'raw_da')
         print('------------------')
     
     print()
@@ -195,5 +195,5 @@ if __name__ == '__main__':
     print('==================')
     for metric in metrics:
         print(metric)
-        compute_seg_correlation('newstest2021', metric, 'z')
+        compute_seg_correlation('newstest2021', metric, 'z_da')
         print('------------------')
