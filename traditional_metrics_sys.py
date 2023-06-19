@@ -4,7 +4,7 @@ from torchmetrics import SacreBLEUScore, TranslationEditRate, CHRFScore
 
 
 news_data = pd.read_csv('Data/all_news_data.tsv', sep='\t')
-news_candidates = 'Data/newstest2021/newstest2021_candidates'
+news_candidates = 'Data/WMT21-data/system-outputs/newstest2021'
 news_references_A = list(news_data['news_ref_A'])
 news_references_B = list(news_data['news_ref_B'])
 
@@ -13,7 +13,7 @@ for A, B in zip(news_references_A, news_references_B):
     all_news_references.append([A, B])
 
 ted_data = pd.read_csv('Data/all_TED_data.tsv', sep='\t')
-ted_candidates = 'Data/tedtalks/tedtalks_candidates'
+ted_candidates = 'Data/WMT21-data/system-outputs/tedtalks'
 ted_references = list(ted_data['TED_ref'])
 
 bleu = SacreBLEUScore()
