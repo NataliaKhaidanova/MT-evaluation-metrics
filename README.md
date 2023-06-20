@@ -68,14 +68,12 @@ The [reference-free_eval](https://github.com/NataliaKhaidanova/MT_evaluation_met
 
 <h3>Files:</h3>
 
-- COMET-QE-MQM_2021.py computes segment-level scores for the reference-free neural metric COMET-QE-MQM_2021 on the additional data comprising two concise scientific articles ([Baby K](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/blob/main/reference-free_eval/Data/baby_k.tsv) and [A Beautiful Mind](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/blob/main/reference-free_eval/Data/a_beautiful_mind.tsv)). The metric evaluates both human and machine translations. 
+- [COMET-QE-MQM_2021.py](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/blob/main/reference-free_eval/COMET-QE-MQM_2021.py) computes segment- and system-level scores of the reference-free neural metric COMET-QE-MQM_2021 on the additional data comprising two scientific articles ([Baby K](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/blob/main/reference-free_eval/Data/baby_k.tsv) and [A Beautiful Mind](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/blob/main/reference-free_eval/Data/a_beautiful_mind.tsv)). The metric evaluates both human and machine translations. Note that the source sentences and their human translations were added to the files manually. 
 
-- add_opus_mt_translations.py adds machine translations produced by the opus-mt-en-ru MT system to the data comprising two concise scientific articles ([Baby K](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/blob/main/reference-free_eval/Data/baby_k.tsv) and [A Beautiful Mind](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/blob/main/reference-free_eval/Data/a_beautiful_mind.tsv)).
+- add_opus_mt_translations.py adds MTs produced by the opus-mt-en-ru MT system to the data comprising two scientific articles ([Baby K](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/blob/main/reference-free_eval/Data/baby_k.tsv) and [A Beautiful Mind](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/blob/main/reference-free_eval/Data/a_beautiful_mind.tsv)).
 
 - get_mean_length.py counts the mean character length of the source sentences and their human translations in the [Baby K](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/blob/main/reference-free_eval/Data/baby_k.tsv) and [A Beautiful Mind](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/blob/main/reference-free_eval/Data/a_beautiful_mind.tsv) articles. 
 
 <h3>Subfolders:</h3>
 
 - [Data](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/tree/main/reference-free_eval/Data) contains two scientific articles ([Baby K](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/blob/main/reference-free_eval/Data/baby_k.tsv) and [A Beautiful Mind](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/blob/main/reference-free_eval/Data/a_beautiful_mind.tsv)), each comprising English source sentences, their corresponding human translations and MTs produced by the opus-mt-en-ru MT system. The files were created with the aim of evaluating the applicability of reference-free neural metrics, specifically COMET-QE-MQM_2021, for professional human translators. The subfolder also stores the segment- and system-level scores produced by COMET-QE-MQM_2021 for both human and machine translations. 
-
-- 
