@@ -15,14 +15,14 @@ def read_file(file_path):
     return data
   
   
-news_source = r'Data/WMT21-data/sources/newstest2021.en-ru.src.en'
-news_reference_A = r'Data/WMT21-data/references/newstest2021.en-ru.ref.ref-A.ru'
-news_reference_B = r'Data/WMT21-data/references/newstest2021.en-ru.ref.ref-B.ru'
-news_candidates = r'Data/WMT21-data/system-outputs/newstest2021'
+news_source = r'WMT21-data/sources/newstest2021.en-ru.src.en'
+news_reference_A = r'WMT21-data/references/newstest2021.en-ru.ref.ref-A.ru'
+news_reference_B = r'WMT21-data/references/newstest2021.en-ru.ref.ref-B.ru'
+news_candidates = r'WMT21-data/system-outputs/newstest2021'
 
-ted_source = r'Data/WMT21-data/sources/tedtalks.en-ru.src.en'
-ted_reference = r'Data/WMT21-data/references/tedtalks.en-ru.ref.ref-A.ru'
-ted_candidates = r'Data/WMT21-data/system-outputs/tedtalks'
+ted_source = r'WMT21-data/sources/tedtalks.en-ru.src.en'
+ted_reference = r'WMT21-data/references/tedtalks.en-ru.ref.ref-A.ru'
+ted_candidates = r'WMT21-data/system-outputs/tedtalks'
 
 
 news_source = read_file(news_source)
@@ -57,24 +57,24 @@ for news_file_name in os.listdir(news_candidates):
 
 
 news_df = pd.DataFrame(news_data_dict)
-news_df.to_csv('Data/all_news_data.tsv', sep='\t', index=False) 
+news_df.to_csv('all_news_data.tsv', sep='\t', index=False) 
 
 ted_df = pd.DataFrame(ted_data_dict)
-ted_df.to_csv('Data/all_TED_data.tsv', sep='\t', index=False)
+ted_df.to_csv('all_TED_data.tsv', sep='\t', index=False)
 
 
 # GET HUMAN JUDGMENTS FOR EACH TEAM PER DOMAIN, CORRELATION AND METRIC TYPE
-newstest2021_file_path_1 = r'Data/WMT21-data/evaluation/newstest2021/en-ru.mqm.seg.score'
-newstest2021_file_path_2 = r'Data/WMT21-data/evaluation/newstest2021/en-ru.wmt-raw.seg.score'
-newstest2021_file_path_3 = r'Data/WMT21-data/evaluation/newstest2021/en-ru.wmt-z.seg.score'
+newstest2021_file_path_1 = r'WMT21-data/evaluation/newstest2021/en-ru.mqm.seg.score'
+newstest2021_file_path_2 = r'WMT21-data/evaluation/newstest2021/en-ru.wmt-raw.seg.score'
+newstest2021_file_path_3 = r'WMT21-data/evaluation/newstest2021/en-ru.wmt-z.seg.score'
 
-newstest2021_file_path_4 = r'Data/WMT21-data/evaluation/newstest2021/en-ru.mqm.sys.score'
-newstest2021_file_path_5 = r'Data/WMT21-data/evaluation/newstest2021/en-ru.wmt-raw.sys.score'
-newstest2021_file_path_6 = r'Data/WMT21-data/evaluation/newstest2021/en-ru.wmt-z.sys.score'
+newstest2021_file_path_4 = r'WMT21-data/evaluation/newstest2021/en-ru.mqm.sys.score'
+newstest2021_file_path_5 = r'WMT21-data/evaluation/newstest2021/en-ru.wmt-raw.sys.score'
+newstest2021_file_path_6 = r'WMT21-data/evaluation/newstest2021/en-ru.wmt-z.sys.score'
 
-tedtalks_file_path_1 = r'Data/WMT21-data/evaluation/tedtalks/en-ru.mqm.seg.score'
+tedtalks_file_path_1 = r'WMT21-data/evaluation/tedtalks/en-ru.mqm.seg.score'
 
-tedtalks_file_path_2 = r'Data/WMT21-data/evaluation/tedtalks/en-ru.mqm.sys.score'
+tedtalks_file_path_2 = r'WMT21-data/evaluation/tedtalks/en-ru.mqm.sys.score'
 
 
 def get_scores(file_path, systems, scores):
@@ -126,11 +126,11 @@ def save_scores(file_path, correlation, score_type):
         
         if 'news' in file_path:
             news_df = pd.DataFrame(news_data_dict)
-            news_df.to_csv(f'eval/human_judgments_seg/all_news_seg_{score_type}_scores.tsv', sep='\t', index=False) 
+            news_df.to_csv(f'../eval/human_judgments_seg/all_news_seg_{score_type}_scores.tsv', sep='\t', index=False) 
             
         if 'tedtalks' in file_path:
             ted_df = pd.DataFrame(ted_data_dict)
-            ted_df.to_csv('eval/human_judgments_seg/all_TED_seg_mqm_scores.tsv', sep='\t', index=False) 
+            ted_df.to_csv('../eval/human_judgments_seg/all_TED_seg_mqm_scores.tsv', sep='\t', index=False) 
 
     if correlation == 'sys':
 
@@ -144,10 +144,10 @@ def save_scores(file_path, correlation, score_type):
         
         if 'news' in file_path:
             news_df = pd.DataFrame(news_data_dict)
-            news_df.to_csv(f'eval/human_judgments_sys/all_news_sys_{score_type}_scores.tsv', sep='\t', index=False) 
+            news_df.to_csv(f'../eval/human_judgments_sys/all_news_sys_{score_type}_scores.tsv', sep='\t', index=False) 
         if 'tedtalks'in file_path:
             ted_df = pd.DataFrame(ted_data_dict)
-            ted_df.to_csv('eval/human_judgments_sys/all_TED_sys_mqm_scores.tsv', sep='\t', index=False) 
+            ted_df.to_csv('../eval/human_judgments_sys/all_TED_sys_mqm_scores.tsv', sep='\t', index=False) 
             
             
 if __name__ == '__main__':
