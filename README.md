@@ -78,7 +78,11 @@ The [reference-free_eval](https://github.com/NataliaKhaidanova/MT_evaluation_met
 
 <h3>Subfolders:</h3>
 
-- [Data](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/tree/main/reference-free_eval/Data) contains two scientific articles ([Baby K](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/blob/main/reference-free_eval/Data/baby_k.tsv) and [A Beautiful Mind](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/blob/main/reference-free_eval/Data/a_beautiful_mind.tsv)), each comprising English source sentences, their corresponding human translations and MTs produced by the opus-mt-en-ru MT system. The files were created with the aim of evaluating the applicability of reference-free neural metrics, specifically COMET-QE-MQM_2021, for professional human translators. The subfolder also stores the segment- and system-level scores produced by COMET-QE-MQM_2021 for both human and machine translations. 
+- [Data](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/tree/main/reference-free_eval/Data) contains two scientific articles ([Baby K](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/blob/main/reference-free_eval/Data/baby_k.tsv) and [A Beautiful Mind](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/blob/main/reference-free_eval/Data/a_beautiful_mind.tsv)), each comprising English source sentences, their corresponding human translations and MTs produced by the opus-mt-en-ru MT system. The files were created with the aim of evaluating the applicability of reference-free neural metrics, specifically COMET-QE-MQM_2021, for professional human translators. The subfolder also stores the segment- and system-level scores produced by COMET-QE-MQM_2021 for both human and machine translations.
+
+<h2>\requirements.txt</h2>
+
+The [requirements.txt](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/blob/main/requirements.txt) file contains information about the packages and models required to run the implemented traditional (SacreBLEU, TER, and CHRF2) and neural (BLEURT-20, COMET-MQM_2021, and COMET-QE-MQM_2021) metrics. 
 
 <h2>References</h2>
 
