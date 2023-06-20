@@ -82,22 +82,4 @@ The [reference-free_eval](https://github.com/NataliaKhaidanova/MT_evaluation_met
 
 <h2>References</h2>
 
-```@inproceedings{freitag-etal-2021-results,
-    title = "Results of the {WMT}21 Metrics Shared Task: Evaluating Metrics with Expert-based Human Evaluations on {TED} and News Domain",
-    author = "Freitag, Markus  and
-      Rei, Ricardo  and
-      Mathur, Nitika  and
-      Lo, Chi-kiu  and
-      Stewart, Craig  and
-      Foster, George  and
-      Lavie, Alon  and
-      Bojar, Ond{\v{r}}ej",
-    booktitle = "Proceedings of the Sixth Conference on Machine Translation",
-    month = nov,
-    year = "2021",
-    address = "Online",
-    publisher = "Association for Computational Linguistics",
-    url = "https://aclanthology.org/2021.wmt-1.73",
-    pages = "733--774",
-    abstract = "This paper presents the results of the WMT21 Metrics Shared Task. Participants were asked to score the outputs of the translation systems competing in the WMT21 News Translation Task with automatic metrics on two different domains: news and TED talks. All metrics were evaluated on how well they correlate at the system- and segment-level with human ratings. Contrary to previous years{'} editions, this year we acquired our own human ratings based on expert-based human evaluation via Multidimensional Quality Metrics (MQM). This setup had several advantages: (i) expert-based evaluation has been shown to be more reliable, (ii) we were able to evaluate all metrics on two different domains using translations of the same MT systems, (iii) we added 5 additional translations coming from the same system during system development. In addition, we designed three challenge sets that evaluate the robustness of all automatic metrics. We present an extensive analysis on how well metrics perform on three language pairs: English to German, English to Russian and Chinese to English. We further show the impact of different reference translations on reference-based metrics and compare our expert-based MQM annotation with the DA scores acquired by WMT.",
-}```
+- Markus Freitag, Ricardo Rei, Nitika Mathur, Chi-kiu Lo, Craig Stewart, George Foster, Alon Lavie, and Ondřej Bojar. 2021. [Results of the WMT21 Metrics Shared Task: Evaluating Metrics with Expert-based Human Evaluations on TED and News Domain](https://aclanthology.org/2021.wmt-1.73v3.pdf ). *In Proceedings of the Sixth Conference on Machine Translation*, pages 733–774, Online. Association for Computational Linguistics. 
