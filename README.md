@@ -42,12 +42,17 @@ The [eval](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/tree/main/
 
 - [human_judgments_sys](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/tree/main/eval/human_judgments_sys) contains system-level human judgment scores of each type (MQM, raw DA, or z-normalized DA). Domain: both news and TED talks.
 
-<h2>\code</h2>
+<h2>\metrics</h2>
 
-The code folder contains: 
+The [metrics](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/tree/main/metrics) folder contains: 
 
 <h3>Files:</h3>
 
-- BLEURT-20.py runs the neural metric BLEURT-20 on the WMT21 Metrics Task data
+- BLEURT-20.py computes segment-level scores for the reference-based neural metric BLEURT-20 on the WMT21 Metrics Task data and calculates the metric's runtime per MT system. The resulting segment-level scores and metric's runtime are stored in [BLEURT-20 (newstest2021)](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/tree/main/Data/newstest2021/BLEURT-20) and [BLEURT-20 (tedtalks)](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/tree/main/Data/tedtalks/BLEURT-20). 
+
+- COMET-MQM_2021.py computes segment-level scores for the reference-based neural metric COMET-MQM_2021 on the WMT21 Metrics Task data and calculates the metric's runtime per MT system. The resulting segment-level scores and metric's runtime are stored in [COMET-MQM_2021 (newstest2021)](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/tree/main/Data/newstest2021/COMET-MQM_2021) and [COMET-MQM_2021 (tedtalks)](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/tree/main/Data/tedtalks/COMET-MQM_2021). 
+  
+- COMET-QE-MQM_2021.py runs the reference-free neural metric COMET-QE-MQM_2021 on the WMT21 Metrics Task data and computes the metric's runtime. 
+
 
 
