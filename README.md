@@ -4,7 +4,7 @@
   
 The thesis project focuses on replicating and reproducing selected research conducted at the WMT21 Metrics Task. It involves evaluating the traditional (SacreBLEU, TER, and CHRF2) and best-performing reference-based (BLEURT-20, COMET-MQM_2021) and reference-free (COMET-QE-MQM_2021) neural metrics.
 
-<h2>Content</h2>
+<h2>Content:</h2>
 
 <h2>\Data</h2>
 
@@ -12,9 +12,11 @@ The [data](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/tree/main/
 
 <h3>Files:</h3>
 
-- all_news_data.tsv stores all source sentences, reference translations, and machine translations for the news domain.  
+- [all_TED_data.tsv](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/blob/main/Data/all_TED_data.tsv) stores all source sentences, reference translations, and MTs presented at the WMT21 Metrics Task for the TED talks (tedtalks) domain.  
 
-- all_TED_data.tsv contains all source sentences, reference translations, and machine translations for the TED talks domain.  
+- [all_news_data.tsv](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/blob/main/Data/all_news_data.tsv) stores all source sentences, reference translations, and MTs presented at the WMT21 Metrics Task for the news (newstest2021) domain.
+
+- [create_data_files.py](pyhttps://github.com/NataliaKhaidanova/MT_evaluation_metrics/blob/main/Data/create_data_files.py) creates [all_TED_data.tsv](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/blob/main/Data/all_TED_data.tsv) and [all_news_data.tsv](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/blob/main/Data/all_news_data.tsv) files, converts the WMT21 Metrics Task human judgments per type (MQM, raw DA, and z-normalized DA) and domain into .tsv files. The files are stored in [human_judgments_seg](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/tree/main/eval/human_judgments_seg) (segment-level human judgments) and [human_judgments_sys](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/tree/main/eval/human_judgments_sys) (system-level human judgments). 
 
 <h3>Subfolders:</h3>
 
