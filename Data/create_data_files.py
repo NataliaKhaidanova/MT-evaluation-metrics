@@ -63,7 +63,7 @@ ted_df = pd.DataFrame(ted_data_dict)
 ted_df.to_csv('all_TED_data.tsv', sep='\t', index=False)
 
 
-# GET HUMAN JUDGMENTS FOR EACH TEAM PER DOMAIN, CORRELATION AND METRIC TYPE
+# GET HUMAN JUDGMENTS PER TYPE AND DOMAIN
 newstest2021_file_path_1 = r'WMT21-data/evaluation/newstest2021/en-ru.mqm.seg.score'
 newstest2021_file_path_2 = r'WMT21-data/evaluation/newstest2021/en-ru.wmt-raw.seg.score'
 newstest2021_file_path_3 = r'WMT21-data/evaluation/newstest2021/en-ru.wmt-z.seg.score'
