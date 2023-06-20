@@ -11,7 +11,7 @@ news_references_B = list(news_data['news_ref_B'])
 
 all_news_references = []
 for A, B in zip(news_references_A, news_references_B):
-    all_news_references.append([A.split(), B.split()])
+    all_news_references.append([A, B])
 
 ted_data = pd.read_csv(r'../Data/all_TED_data.tsv', sep='\t') 
 ted_candidates = r'../Data/WMT21-data/system-outputs/tedtalks'
@@ -46,33 +46,28 @@ def get_traditional_metrics_runtime(data, candidates, all_references, metric):
             file_candidates = list(data[file_name[23:-3]])
 
             for references, candidate in zip(all_references, file_candidates):
-
-                torchmetrics_references = [' '.join(x) for x in references]
-
+                
                 if metric == 'sacre_BLEU':
                     try:
-                        sacre_bleu_score = sacre_bleu([candidate], [torchmetrics_references])
+                        sacre_bleu_score = sacre_bleu([candidate], [references])
                         sacre_bleu_score = sacre_bleu_score.item()
                         scores.append(f'{sacre_bleu_score:.2f}')
-
                     except Exception:
                         scores.append('0.00')
 
                 if metric == 'TER':
                     try:
-                        ter_score = ter([candidate], [torchmetrics_references])
+                        ter_score = ter([candidate], [references])
                         ter_score = ter_score.item()
                         scores.append(f'{ter_score:.2f}')
-
                     except Exception:
                         scores.append('0.00')
 
                 if metric == 'CHRF2':
                     try:
-                        chrf2_score = chrf2([candidate], [torchmetrics_references])
+                        chrf2_score = chrf2([candidate], [references])
                         chrf2_score = chrf2_score.item()
                         scores.append(f'{chrf2_score:.2f}')
-
                     except Exception:
                         scores.append('0.00')
 
