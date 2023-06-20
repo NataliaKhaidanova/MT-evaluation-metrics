@@ -40,7 +40,7 @@ The [eval](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/tree/main/
 
 - [human_judgments_seg](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/tree/main/eval/human_judgments_seg) stores segment-level human judgment scores of each type (MQM, raw DA, or z-normalized DA) in separate .tsv files. The scores are presented for both newstest2021 and tedtalks.
   
-- [human_judgments_sys](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/tree/main/eval/human_judgments_sys) contains system-level human judgment scores of each type (MQM, raw DA, or z-normalized DA) in separate .tsv files. The scores are presented for both newstest2021 and tedtalks.
+- [human_judgments_sys](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/tree/main/eval/human_judgments_sys) stores system-level human judgment scores of each type (MQM, raw DA, or z-normalized DA) in separate .tsv files. The scores are presented for both newstest2021 and tedtalks.
 
 <h2>\metrics</h2>
 
