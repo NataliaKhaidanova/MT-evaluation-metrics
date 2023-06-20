@@ -73,7 +73,7 @@ for file_name in os.listdir(ted_candidates):
             ter_score = ter_score.item()
             ter_scores.append(f'{ter_score:.2f}')
 
-            chrf2_score = chrf2([candidate], [reference])
+            chrf2_score = chrf2([candidate], [[reference]])
             chrf2_score = chrf2_score.item()
             chrf2_scores.append(f'{chrf2_score:.2f}')
 
