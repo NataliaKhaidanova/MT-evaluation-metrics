@@ -56,7 +56,9 @@ for file_name in os.listdir(news_candidates):
         data_dict['CHRF2'] = chrf2_scores
         news_scores.append(data_dict)
 
-
+        news_data = pd.DataFrame(data_dict)
+        news_data.to_csv(f'Data/newstest2021/traditional_metrics/{file_name[23:-3]}.tsv', sep='\t', index=False) 
+    
 for file_name in os.listdir(ted_candidates):
     if file_name[19:-3] != 'ref-A':
 
@@ -82,13 +84,5 @@ for file_name in os.listdir(ted_candidates):
         data_dict['CHRF2'] = chrf2_scores
         ted_scores.append(data_dict)
 
-
-for file_name, data_dict in zip(os.listdir(news_candidates), news_scores):
-    
-    news_data = pd.DataFrame(data_dict)
-    news_data.to_csv(f'Data/newstest2021/traditional_metrics/{file_name[23:-3]}.tsv', sep='\t', index=False) 
-
-for file_name, data_dict in zip(os.listdir(ted_candidates), ted_scores):
-    
-    ted_data = pd.DataFrame(data_dict)
-    ted_data.to_csv(f'Data/tedtalks/traditional_metrics/{file_name[19:-3]}.tsv', sep='\t', index=False) 
+        ted_data = pd.DataFrame(data_dict)
+        ted_data.to_csv(f'Data/tedtalks/traditional_metrics/{file_name[19:-3]}.tsv', sep='\t', index=False) 
