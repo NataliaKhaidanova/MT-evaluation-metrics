@@ -10,7 +10,7 @@ news_references_B = list(news_data['news_ref_B'])
 
 all_news_references = []
 for A, B in zip(news_references_A, news_references_B):
-    all_news_references.append([A.split(), B.split()])
+    all_news_references.append([A, B])
     
 ted_data = pd.read_csv(r'../Data/all_TED_data.tsv', sep='\t') 
 ted_candidates = '../Data/WMT21-data/system-outputs/tedtalks'
@@ -32,17 +32,16 @@ for file_name in os.listdir(news_candidates):
 
         for references, candidate in zip(all_news_references, candidates):
             try:
-                torchmetrics_references = [' '.join(x) for x in references]
                 # SacreBLEU
-                sacre_bleu_score = sacre_bleu([candidate], [torchmetrics_references])
+                sacre_bleu_score = sacre_bleu([candidate], [references])
                 sacre_bleu_score = sacre_bleu_score.item()
                 sacre_bleu_scores.append(f'{sacre_bleu_score:.2f}')
                 # TER
-                ter_score = ter([candidate], [torchmetrics_references])
+                ter_score = ter([candidate], [references])
                 ter_score = ter_score.item()
                 ter_scores.append(f'{ter_score:.2f}')
                 # CHRF2
-                chrf2_score = chrf2([candidate], [torchmetrics_references])
+                chrf2_score = chrf2([candidate], [references])
                 chrf2_score = chrf2_score.item()
                 chrf2_scores.append(f'{chrf2_score:.2f}')
 
