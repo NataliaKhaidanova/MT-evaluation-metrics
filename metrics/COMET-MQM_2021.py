@@ -30,8 +30,8 @@ def load_comet_model(checkpoint_path, hparams_path):
     return model
     
     
-news_data = pd.read_csv(r'Data/all_news_data.tsv', sep='\t') 
-news_candidates = r'Data/WMT21-data/system-outputs/newstest2021'
+news_data = pd.read_csv(r'../Data/all_news_data.tsv', sep='\t') 
+news_candidates = r'../Data/WMT21-data/system-outputs/newstest2021'
 news_source = list(news_data['news_source'])
 news_references_A = list(news_data['news_ref_A'])
 news_references_B = list(news_data['news_ref_B'])
@@ -40,8 +40,8 @@ all_news_references = []
 for A, B in zip(news_references_A, news_references_B):
     all_news_references.append([A.split(), B.split()])
     
-ted_data = pd.read_csv(r'Data/all_TED_data.tsv', sep='\t') 
-ted_candidates = r'Data/WMT21-data/system-outputs/tedtalks'
+ted_data = pd.read_csv(r'../Data/all_TED_data.tsv', sep='\t') 
+ted_candidates = r'../Data/WMT21-data/system-outputs/tedtalks'
 ted_source = list(ted_data['TED_source'])
 ted_references = list(ted_data['TED_ref'])
 
@@ -105,7 +105,7 @@ for file_name in os.listdir(news_candidates):
         print('==================')
           
         news_comet_mqm_2021_data = pd.DataFrame(data_dict)
-        news_comet_mqm_2021_data.to_csv(f'Data/newstest2021/COMET-MQM_2021/{file_name[23:-3]}_COMET-MQM_2021.tsv', sep='\t', index=False) 
+        news_comet_mqm_2021_data.to_csv(f'../Data/newstest2021/COMET-MQM_2021/{file_name[23:-3]}_COMET-MQM_2021.tsv', sep='\t', index=False) 
         
         
 for file_name in os.listdir(ted_candidates):
@@ -148,4 +148,4 @@ for file_name in os.listdir(ted_candidates):
         print('==================')
           
         ted_comet_mqm_2021_data = pd.DataFrame(data_dict)
-        ted_comet_mqm_2021_data.to_csv(f'Data/tedtalks/COMET-MQM_2021/{file_name[19:-3]}_COMET-MQM_2021.tsv', sep='\t', index=False) 
+        ted_comet_mqm_2021_data.to_csv(f'../Data/tedtalks/COMET-MQM_2021/{file_name[19:-3]}_COMET-MQM_2021.tsv', sep='\t', index=False) 
