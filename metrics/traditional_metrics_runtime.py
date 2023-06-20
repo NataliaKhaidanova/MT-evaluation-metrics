@@ -4,8 +4,8 @@ from torchmetrics import SacreBLEUScore, TranslationEditRate, CHRFScore
 import time
 
 
-news_data = pd.read_csv(r'Data/all_news_data.tsv', sep='\t') 
-news_candidates = r'Data/WMT21-data/system-outputs/newstest2021'
+news_data = pd.read_csv(r'../Data/all_news_data.tsv', sep='\t') 
+news_candidates = r'../Data/WMT21-data/system-outputs/newstest2021'
 news_references_A = list(news_data['news_ref_A'])
 news_references_B = list(news_data['news_ref_B'])
 
@@ -13,8 +13,8 @@ all_news_references = []
 for A, B in zip(news_references_A, news_references_B):
     all_news_references.append([A.split(), B.split()])
 
-ted_data = pd.read_csv(r'Data/all_TED_data.tsv', sep='\t') 
-ted_candidates = r'Data/WMT21-data/system-outputs/tedtalks'
+ted_data = pd.read_csv(r'../Data/all_TED_data.tsv', sep='\t') 
+ted_candidates = r'../Data/WMT21-data/system-outputs/tedtalks'
 ted_references = list(ted_data['TED_ref'])
 
 sacre_bleu = SacreBLEUScore()
