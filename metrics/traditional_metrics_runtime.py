@@ -22,7 +22,7 @@ ter = TranslationEditRate()
 chrf2 = CHRFScore()
 
 
-def get_traditional_metrics_time(data, candidates, all_references, metric):
+def get_traditional_metrics_runtime(data, candidates, all_references, metric):
     """
     Get metric's scores for all candidates and systems in the system-outputs folder,
     get the time needed to produce these scores. N.B.! The scores won't be saved. 
@@ -128,17 +128,17 @@ def get_traditional_metrics_time(data, candidates, all_references, metric):
 if __name__ == '__main__':
     print('newstest2021 data:')
     print('==================')
-    get_traditional_metrics_time(news_data, news_candidates, all_news_references, 'sacre_BLEU')
+    get_traditional_metrics_runtime(news_data, news_candidates, all_news_references, 'sacre_BLEU')
     print('------------------')
-    get_traditional_metrics_time(news_data, news_candidates, all_news_references, 'TER')
+    get_traditional_metrics_runtime(news_data, news_candidates, all_news_references, 'TER')
     print('------------------')
-    get_traditional_metrics_time(news_data, news_candidates, all_news_references, 'CHRF2')
+    get_traditional_metrics_runtime(news_data, news_candidates, all_news_references, 'CHRF2')
     print('------------------')
     print('tedtalks data:')
     print('==================')
-    get_traditional_metrics_time(ted_data, ted_candidates, ted_references, 'sacre_BLEU')
+    get_traditional_metrics_runtime(ted_data, ted_candidates, ted_references, 'sacre_BLEU')
     print('------------------')
-    get_traditional_metrics_time(ted_data, ted_candidates, ted_references, 'TER')
+    get_traditional_metrics_runtime(ted_data, ted_candidates, ted_references, 'TER')
     print('------------------')
-    get_traditional_metrics_time(ted_data, ted_candidates, ted_references, 'CHRF2')
+    get_traditional_metrics_runtime(ted_data, ted_candidates, ted_references, 'CHRF2')
     print('------------------')
