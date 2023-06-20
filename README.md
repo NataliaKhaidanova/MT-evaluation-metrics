@@ -62,3 +62,12 @@ The [metrics](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/tree/ma
 
 - traditional_metrics_runtime.py calculates the traditional metrics' (SacreBLEU, TER, and CHRF2) runtimes for segment-level evaluation. The runtimes are determined for all MT systems per domain. The metrics' runtimes are stored in [traditional_metrics (newstest2021)](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/tree/main/Data/newstest2021/traditional_metrics) and [traditional_metrics (tedtalks)](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/tree/main/Data/tedtalks/traditional_metrics).
 
+<h2>\reference-free_eval</h2>
+
+The [reference-free_eval](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/tree/main/reference-free_eval) folder contains: 
+
+<h3>Files:</h3>
+
+- COMET-QE-MQM_2021.py computes segment-level scores for the reference-free neural metric COMET-QE-MQM_2021 on the additional data comprising two concise scientific articles ([Baby K](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/blob/main/reference-free_eval/Data/baby_k.tsv)https://github.com/NataliaKhaidanova/MT_evaluation_metrics/blob/main/reference-free_eval/Data/baby_k.tsv and [A Beautiful Mind](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/blob/main/reference-free_eval/Data/a_beautiful_mind.tsv)https://github.com/NataliaKhaidanova/MT_evaluation_metrics/blob/main/reference-free_eval/Data/a_beautiful_mind.tsv). The metric evaluates both human and machine translations. 
+
+- add_opus_mt_translations.py adds machine translations produced by the opus-mt-en-ru MT system to the data comprising two concise scientific articles ([Baby K](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/blob/main/reference-free_eval/Data/baby_k.tsv)https://github.com/NataliaKhaidanova/MT_evaluation_metrics/blob/main/reference-free_eval/Data/baby_k.tsv and [A Beautiful Mind](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/blob/main/reference-free_eval/Data/a_beautiful_mind.tsv)https://github.com/NataliaKhaidanova/MT_evaluation_metrics/blob/main/reference-free_eval/Data/a_beautiful_mind.tsv).
