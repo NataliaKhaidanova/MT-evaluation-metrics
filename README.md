@@ -30,17 +30,17 @@ The [eval](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/tree/main/
 
 <h3>Files:</h3>
 
-- get_nr_annotations.py checks the number of annotated segments per type of human judgment (MQM, raw DA, or z-normalized DA). 
+- [get_nr_annotations.py](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/blob/main/eval/get_nr_annotations.py) checks the number of annotated segments in the WMT21 Metrics Task data per type of human judgment (MQM, raw DA, or z-normalized DA). 
 
-- seg_eval.py runs a segment-level evaluation of the implemented neural and traditional metrics. 
+- [seg_eval.py](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/blob/main/eval/seg_eval.py) runs a segment-level evaluation of the implemented neural (BLEURT-20, COMET-MQM_2021, and COMET-QE-MQM_2021) and traditional (SacreBLEU, TER, and CHRF2) metrics. 
 
-- sys_eval.py runs a system-level evaluation of the implemented neural and traditional metrics. 
+- [sys_eval.py](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/blob/main/eval/sys_eval.py) runs a system-level evaluation of the implemented neural (BLEURT-20, COMET-MQM_2021, and COMET-QE-MQM_2021) and traditional (SacreBLEU, TER, and CHRF2) metrics. 
 
 <h3>Subfolders:</h3>
 
-- [human_judgments_seg](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/tree/main/eval/human_judgments_seg) stores segment-level human judgment scores of each type (MQM, raw DA, or z-normalized DA). Domain: both news and TED talks. 
-
-- [human_judgments_sys](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/tree/main/eval/human_judgments_sys) contains system-level human judgment scores of each type (MQM, raw DA, or z-normalized DA). Domain: both news and TED talks.
+- [human_judgments_seg](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/tree/main/eval/human_judgments_seg) stores segment-level human judgment scores of each type (MQM, raw DA, or z-normalized DA) in separate .tsv files. The scores are presented for both newstest2021 and tedtalks.
+  
+- [human_judgments_sys](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/tree/main/eval/human_judgments_sys) contains system-level human judgment scores of each type (MQM, raw DA, or z-normalized DA) in separate .tsv files. The scores are presented for both newstest2021 and tedtalks.
 
 <h2>\metrics</h2>
 
