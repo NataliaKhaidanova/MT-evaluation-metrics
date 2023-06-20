@@ -40,6 +40,14 @@ The [eval](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/tree/main/
 
 - [human_judgments_seg](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/tree/main/eval/human_judgments_seg) stores segment-level human judgment scores of each type (MQM, raw DA, or z-normalized DA). Domain: both news and TED talks. 
 
-- [human_judgments_sys](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/tree/main/eval/human_judgments_sys) contains system-level human judgment scores of each type (MQM, raw DA, or z-normalized DA). Domain: both news and TED talks. 
+- [human_judgments_sys](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/tree/main/eval/human_judgments_sys) contains system-level human judgment scores of each type (MQM, raw DA, or z-normalized DA). Domain: both news and TED talks.
+
+<h2>\code</h2>
+
+The code folder contains: 
+
+<h3>Files:</h3>
+
+- BLEURT-20.py runs the neural metric BLEURT-20 on the WMT21 Metrics Task data
 
 
