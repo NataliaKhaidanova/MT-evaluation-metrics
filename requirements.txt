@@ -1,4 +1,4 @@
-To compute traditional metrics:
+To compute traditional metrics (SacreBLEU, TER, and CHRF2):
  
 - pip install torchmetrics 
 
@@ -13,4 +13,4 @@ To compute COMET-MQM_2021 or COMET-QE-MQM_2021:
 
 If loading the model directly from Hugging Face does not work, you may need to download it locally: 
 - Use the link: https://unbabel.github.io/COMET/html/models.html#available-evaluation-models
-- download wmt21-comet-mqm (for COMET-MQM_2021) and wmt21-comet-qe-mqm (for COMET-QE-MQM_2021)
+- Download wmt21-comet-mqm (for COMET-MQM_2021) and wmt21-comet-qe-mqm (for COMET-QE-MQM_2021)
