@@ -4,7 +4,7 @@ Machine translation (MT) has become increasingly popular in recent years due to 
 
 This repository is part of the thesis project for the Master's Degree in "Linguistics: Text Mining" at the Vrije Universiteit Amsterdam (2022-2023). The project focuses on replicating and reproducing selected research conducted at the WMT21 Metrics Shared Task. The replication involves evaluating the traditional (SacreBLEU, TER, and CHRF2) and best-performing reference-based (BLEURT-20, COMET-MQM_2021) and reference-free (COMET-QE-MQM_2021) neural metrics. The evaluation is conducted across two domains: news articles and TED talks translated from English into Russian. By examining the performance of these metrics, we aim to understand their effectiveness and suitability in different translation contexts. Furthermore, the thesis project extends the evaluation to assess the applicability of reference-free neural metrics, with a particular focus on COMET-QE-MQM_2021, for professional human translators. The evaluation is specifically performed on a distinct domain, namely scientific articles. The articles are translated in the same direction as the primary data. 
 
-Creator: Natalia Khaidanova
+Creator: [Natalia Khaidanova](https://github.com/NataliaKhaidanova)
 
 Supervisor: Sophie Arnoult 
 
