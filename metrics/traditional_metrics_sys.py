@@ -29,7 +29,7 @@ for domain in ['newstest2021', 'tedtalks']:
 
             for file_name in os.listdir(news_candidates):
                 if file_name[23:-3] not in ['ref-A', 'ref-B', '']:
-                    news_data = pd.read_csv('Data/all_news_data.tsv', sep='\t')
+                    news_data = pd.read_csv('../Data/all_news_data.tsv', sep='\t')
                     candidates = list(news_data[file_name[23:-3]])
                     candidates = [str(x) for x in candidates]
                     
@@ -56,7 +56,7 @@ for domain in ['newstest2021', 'tedtalks']:
 
             for file_name in os.listdir(ted_candidates):
                 if file_name[19:-3] not in ['ref-A']:
-                    ted_data = pd.read_csv('Data/all_TED_data.tsv', sep='\t')
+                    ted_data = pd.read_csv('../Data/all_TED_data.tsv', sep='\t')
                     candidates = list(ted_data[file_name[19:-3]])
                   
                     if metric == 'sacre_BLEU':
