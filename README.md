@@ -6,7 +6,7 @@ This GitHub repository is part of the thesis project for the Master's Degree in 
 
 Creator: Natalia Khaidanova
 
-University superviser: Sophie Arnoult 
+Supervisor: Sophie Arnoult 
 
 <h2>Content</h2>
 
