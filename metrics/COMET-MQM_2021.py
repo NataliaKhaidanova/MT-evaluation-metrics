@@ -38,7 +38,7 @@ news_references_B = list(news_data['news_ref_B'])
 
 all_news_references = []
 for A, B in zip(news_references_A, news_references_B):
-    all_news_references.append([A.split(), B.split()])
+    all_news_references.append([A, B])
     
 ted_data = pd.read_csv(r'../Data/all_TED_data.tsv', sep='\t') 
 ted_candidates = r'../Data/WMT21-data/system-outputs/tedtalks'
@@ -65,7 +65,6 @@ for file_name in os.listdir(news_candidates):
 
         for source, references, candidate in zip(news_source, all_news_references, candidates):
             count += 1
-            references = [' '.join(x) for x in references]  
             inputs_ref_A = [{'src':source,'mt':candidate,'ref':references[0]}]
             inputs_ref_B = [{'src':source,'mt':candidate,'ref':references[1]}]
             try:
