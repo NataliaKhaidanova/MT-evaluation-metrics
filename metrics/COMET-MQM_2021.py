@@ -11,12 +11,12 @@ import time
 
 def load_comet_model(checkpoint_path, hparams_path):
     """
-    #Load wmt21-comet-mqm model.
+    Load wmt21-comet-mqm model.
     
-    #:param str checkpoint_path: path to the model.ckpt file 
-    #:param str hparams_path: path to the hparams.yaml file 
-    #:return: wmt21-comet-mqm model
-    #"""   
+    :param str checkpoint_path: path to the model.ckpt file 
+    :param str hparams_path: path to the hparams.yaml file 
+    :return: wmt21-comet-mqm model
+    """   
     str2model = {'referenceless_regression_metric': ReferencelessRegression,
                  'regression_metric': RegressionMetric,
                  'ranking_metric': RankingMetric,
