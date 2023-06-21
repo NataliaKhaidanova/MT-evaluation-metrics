@@ -80,7 +80,7 @@ The [reference-free_eval](https://github.com/NataliaKhaidanova/MT_evaluation_met
 
 <h2>requirements.txt</h2>
 
-The [requirements.txt](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/blob/main/requirements.txt) file contains information about the packages and models required to run the implemented traditional (SacreBLEU, TER, and CHRF2) and neural (BLEURT-20, COMET-MQM_2021, and COMET-QE-MQM_2021) metrics. 
+The [requirements.txt](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/blob/main/requirements.txt) file contains information about the packages and models required to run and evaluate the implemented traditional (SacreBLEU, TER, and CHRF2) and neural (BLEURT-20, COMET-MQM_2021, and COMET-QE-MQM_2021) metrics. It also lists additional packages needed to run all the .py files in the repository. 
 
 <h2>References</h2>
 
