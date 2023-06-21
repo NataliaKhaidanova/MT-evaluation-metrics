@@ -1,4 +1,4 @@
-<h1>Machine-translation Evaluation: Comparing Traditional and Neural Machine-translation Evaluation Metrics for English→Russian</h1>
+<h1>Machine-Translation Evaluation: Comparing Traditional and Neural Machine-Translation Evaluation Metrics for English→Russian</h1>
 
 Machine translation (MT) has become increasingly popular in recent years due to advances in technology and growing globalization. As the quality of MT continues to improve, more and more companies are turning to this method over human translation to save time and money. However, the increasing reliance on MT has also highlighted the need for automatic evaluation algorithms that can accurately measure its quality. Developing such algorithms is essential in ensuring that MT can effectively meet the needs of businesses and individuals in the global marketplace, as well as in comparing different MT algorithms against each other and tracking their improvements over time. MT evalaution metrics are an indispensable component of these automatic evaluation algorithms. 
 
