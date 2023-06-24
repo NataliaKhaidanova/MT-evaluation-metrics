@@ -45,10 +45,10 @@ ted_candidates = r'../Data/WMT21-data/system-outputs/tedtalks'
 ted_source = list(ted_data['TED_source'])
 ted_references = list(ted_data['TED_ref'])
 
-try:
+try: # load from Hugging Face
     model_path = download_model('NataliaKhaidanova/wmt21-comet-mqm')
     comet_mqm_2021_model = load_from_checkpoint(model_path)
-except Exception:
+except Exception: # load from local storage 
     checkpoint_path = r'wmt21-comet-mqm/checkpoints/model.ckpt' # set your model's path 
     hparams_path = r'wmt21-comet-mqm/hparams.yaml' # set your hyperparameters' path 
     comet_mqm_2021_model = load_comet_model(checkpoint_path, hparams_path) 
