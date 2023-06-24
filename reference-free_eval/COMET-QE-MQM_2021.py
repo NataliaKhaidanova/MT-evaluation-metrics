@@ -28,10 +28,10 @@ def load_comet_model(checkpoint_path, hparams_path):
     return model
 
 
-try:
+try: # load the model from Hugging Face 
     model_path = download_model('NataliaKhaidanova/wmt21-comet-qe-mqm')
     comet_qe_mqm_2021_model = load_from_checkpoint(model_path)
-except Exception:
+except Exception: # load the model from local storage 
     checkpoint_path = r'wmt21-comet-qe-mqm/checkpoints/model.ckpt' # set your model's path 
     hparams_path = r'wmt21-comet-qe-mqm/hparams.yaml' # set your hyperparameters' path 
     comet_qe_mqm_2021_model = load_comet_model(checkpoint_path, hparams_path) 
