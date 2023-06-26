@@ -88,6 +88,10 @@ The [reference-free_eval](https://github.com/NataliaKhaidanova/MT_evaluation_met
 
 The [requirements.txt](https://github.com/NataliaKhaidanova/MT_evaluation_metrics/blob/main/requirements.txt) file contains information about the packages and models required to run and evaluate the implemented traditional (SacreBLEU, TER, and CHRF2) and neural (BLEURT-20, COMET-MQM_2021, and COMET-QE-MQM_2021) metrics. It also lists additional packages needed to run all the .py files in the repository. 
 
+<h2>Natalia_Khaidanova_2778662_Thesis.pdf</h2>
+
+The [Natalia_Khaidanova_2778662_Thesis.pdf](https://github.com/NataliaKhaidanova/machine-translation-evaluation/blob/main/Natalia_Khaidanova_2778662_Thesis.pdf) file contains the thesis report outlining the results of the research. 
+
 <h2>References</h2>
 
 - Markus Freitag, Ricardo Rei, Nitika Mathur, Chi-kiu Lo, Craig Stewart, George Foster, Alon Lavie, and Ondřej Bojar. 2021. [Results of the WMT21 Metrics Shared Task: Evaluating Metrics with Expert-based Human Evaluations on TED and News Domain](https://aclanthology.org/2021.wmt-1.73v3.pdf ). *In Proceedings of the Sixth Conference on Machine Translation*, pages 733–774, Online. Association for Computational Linguistics. 
